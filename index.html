@@ -15,11 +15,18 @@
 </head>
 <body>
 
+  <!-- Interactive Cosmic Particles Canvas -->
+  <canvas id="particlesCanvas"></canvas>
+
   <!-- Ambient Background Glows -->
   <div class="ambient-glow glow-top"></div>
   <div class="ambient-glow glow-middle"></div>
   <div class="ambient-glow glow-bottom"></div>
   <div class="bg-grid-pattern"></div>
+
+  <!-- Interactive Cursor Follower -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
 
   <!-- Header / Navigation -->
   <header class="site-header" id="header">
@@ -38,7 +45,7 @@
       </nav>
 
       <div class="header-action">
-        <button class="btn btn-pill-white btn-hire-me" onclick="openContactModal()">Hire Me</button>
+        <button class="btn btn-pill-white btn-hire-me magnetic-btn" onclick="openContactModal()">Hire Me</button>
         <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">
           <span></span>
           <span></span>
@@ -62,18 +69,29 @@
   <main>
     <!-- HERO SECTION -->
     <section class="hero-section" id="hero">
+      <!-- Realistic Interactive Hero Rope Physics Canvas -->
+      <canvas id="hero-rope"></canvas>
+
+      <!-- Interactive Pull Rope Hint -->
+      <div class="rope-pull-hint" id="ropePullHint">
+        <span class="hint-pulse-dot"></span>
+        <span>Pull rope to view profile</span>
+        <span class="hint-arrow">⇣</span>
+      </div>
+
       <div class="container hero-container">
         
         <!-- Left Hero Content -->
-        <div class="hero-content">
-          <div class="badge-pill">
+        <div class="hero-content reveal-fade-up">
+          <div class="badge-pill hero-badge">
+            <span class="status-dot"></span>
             <span class="sparkle-icon">✦</span>
             <span>Available For Opportunities</span>
           </div>
 
           <h1 class="hero-title">
-            Hey, I’am <span class="highlight-name">Arpit</span><br>
-            Motion Graphic/SaaS<br>
+            Hey, I’am <span class="highlight-name shimmer-text">Arpit</span><br>
+            <span class="gradient-headline">Motion Graphic/SaaS</span><br>
             Designer /UI Animation .
           </h1>
 
@@ -82,15 +100,15 @@
           </p>
 
           <div class="hero-actions">
-            <button class="btn btn-pill-white" onclick="openContactModal()">Let’s Talk</button>
-            <a href="#portfolio" class="btn btn-pill-outline">My Works</a>
+            <button class="btn btn-pill-white magnetic-btn pulse-glow" onclick="openContactModal()">Let’s Talk</button>
+            <a href="#portfolio" class="btn btn-pill-outline magnetic-btn">My Works</a>
           </div>
         </div>
 
         <!-- Right Hero Visual -->
-        <div class="hero-visual">
+        <div class="hero-visual reveal-scale">
           <div class="hero-card-glow"></div>
-          <div class="hero-card">
+          <div class="hero-card tilt-card float-element" id="heroCard">
             <img src="assets/hero-portrait.png" alt="Arpit - Motion Graphic & SaaS Designer" class="hero-avatar">
           </div>
           
@@ -138,15 +156,15 @@
         
         <div class="about-grid">
           <!-- Left Avatar with Glow -->
-          <div class="about-visual">
+          <div class="about-visual reveal-slide-right">
             <div class="about-circle-glow"></div>
-            <div class="about-avatar-wrapper">
+            <div class="about-avatar-wrapper float-element-slow">
               <img src="assets/about-portrait.png" alt="Arpit Profile" class="about-avatar-img">
             </div>
           </div>
 
           <!-- Right Content -->
-          <div class="about-content">
+          <div class="about-content reveal-slide-left">
             <span class="section-tag">ABOUT ME</span>
             <h2 class="about-title">
               I'm a Video Editor<br>
@@ -164,25 +182,25 @@
             </div>
 
             <div class="about-action">
-              <button class="btn btn-pill-white" onclick="openContactModal()">Visit Profile</button>
+              <button class="btn btn-pill-white magnetic-btn pulse-glow" onclick="openProfileModal()">Visit Profile</button>
             </div>
           </div>
         </div>
 
         <!-- Stats Counters -->
         <div class="stats-grid">
-          <div class="stat-card">
-            <div class="stat-number" data-target="2">02+</div>
+          <div class="stat-card spotlight-card reveal-fade-up" style="--delay: 0.1s;">
+            <div class="stat-number" data-target="2">00+</div>
             <div class="stat-label">Years of experience</div>
           </div>
 
-          <div class="stat-card">
-            <div class="stat-number" data-target="43">43+</div>
+          <div class="stat-card spotlight-card reveal-fade-up" style="--delay: 0.2s;">
+            <div class="stat-number" data-target="43">00+</div>
             <div class="stat-label">Project Completed</div>
           </div>
 
-          <div class="stat-card">
-            <div class="stat-number" data-target="33">33+</div>
+          <div class="stat-card spotlight-card reveal-fade-up" style="--delay: 0.3s;">
+            <div class="stat-number" data-target="33">00+</div>
             <div class="stat-label">Client Satisfaction</div>
           </div>
         </div>
@@ -194,7 +212,7 @@
     <section class="services-section" id="services">
       <div class="container">
         
-        <div class="section-header text-center">
+        <div class="section-header text-center reveal-fade-up">
           <span class="section-tag">SERVICES</span>
           <h2 class="section-heading">My Specialties</h2>
         </div>
@@ -202,14 +220,15 @@
         <div class="services-grid">
           
           <!-- Service Card 1 -->
-          <div class="service-card">
-            <div class="service-icon">
-              <!-- 3D Isometric Diamond Layered Icon -->
-              <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M23 7L38 15L23 23L8 15L23 7Z" stroke="#B87BFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M8 21L23 29L38 21" stroke="#A855F7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M8 27L23 35L38 27" stroke="#8B5CF6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
+          <div class="service-card spotlight-card tilt-card reveal-fade-up" style="--delay: 0.1s;">
+            <div class="service-icon-wrapper">
+              <div class="service-icon">
+                <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M23 7L38 15L23 23L8 15L23 7Z" stroke="#B87BFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M8 21L23 29L38 21" stroke="#A855F7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M8 27L23 35L38 27" stroke="#8B5CF6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
             </div>
             <h3 class="service-title">MOTION GRAPHICS</h3>
             <p class="service-desc">
@@ -218,13 +237,15 @@
           </div>
 
           <!-- Service Card 2 -->
-          <div class="service-card">
-            <div class="service-icon">
-              <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M23 7L38 15L23 23L8 15L23 7Z" stroke="#B87BFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M8 21L23 29L38 21" stroke="#A855F7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M8 27L23 35L38 27" stroke="#8B5CF6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
+          <div class="service-card spotlight-card tilt-card reveal-fade-up" style="--delay: 0.2s;">
+            <div class="service-icon-wrapper">
+              <div class="service-icon">
+                <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M23 7L38 15L23 23L8 15L23 7Z" stroke="#B87BFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M8 21L23 29L38 21" stroke="#A855F7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M8 27L23 35L38 27" stroke="#8B5CF6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
             </div>
             <h3 class="service-title">UI ANIMATION</h3>
             <p class="service-desc">
@@ -233,13 +254,15 @@
           </div>
 
           <!-- Service Card 3 -->
-          <div class="service-card">
-            <div class="service-icon">
-              <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M23 7L38 15L23 23L8 15L23 7Z" stroke="#B87BFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M8 21L23 29L38 21" stroke="#A855F7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M8 27L23 35L38 27" stroke="#8B5CF6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
+          <div class="service-card spotlight-card tilt-card reveal-fade-up" style="--delay: 0.3s;">
+            <div class="service-icon-wrapper">
+              <div class="service-icon">
+                <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M23 7L38 15L23 23L8 15L23 7Z" stroke="#B87BFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M8 21L23 29L38 21" stroke="#A855F7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M8 27L23 35L38 27" stroke="#8B5CF6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
             </div>
             <h3 class="service-title">SAAS ANIMATION</h3>
             <p class="service-desc">
@@ -248,13 +271,15 @@
           </div>
 
           <!-- Service Card 4 -->
-          <div class="service-card">
-            <div class="service-icon">
-              <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M23 7L38 15L23 23L8 15L23 7Z" stroke="#B87BFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M8 21L23 29L38 21" stroke="#A855F7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M8 27L23 35L38 27" stroke="#8B5CF6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
+          <div class="service-card spotlight-card tilt-card reveal-fade-up" style="--delay: 0.15s;">
+            <div class="service-icon-wrapper">
+              <div class="service-icon">
+                <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M23 7L38 15L23 23L8 15L23 7Z" stroke="#B87BFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M8 21L23 29L38 21" stroke="#A855F7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M8 27L23 35L38 27" stroke="#8B5CF6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
             </div>
             <h3 class="service-title">VIRAL REEL</h3>
             <p class="service-desc">
@@ -263,13 +288,15 @@
           </div>
 
           <!-- Service Card 5 -->
-          <div class="service-card">
-            <div class="service-icon">
-              <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M23 7L38 15L23 23L8 15L23 7Z" stroke="#B87BFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M8 21L23 29L38 21" stroke="#A855F7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M8 27L23 35L38 27" stroke="#8B5CF6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
+          <div class="service-card spotlight-card tilt-card reveal-fade-up" style="--delay: 0.25s;">
+            <div class="service-icon-wrapper">
+              <div class="service-icon">
+                <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M23 7L38 15L23 23L8 15L23 7Z" stroke="#B87BFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M8 21L23 29L38 21" stroke="#A855F7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M8 27L23 35L38 27" stroke="#8B5CF6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
             </div>
             <h3 class="service-title">GAMMING EDIT</h3>
             <p class="service-desc">
@@ -278,13 +305,15 @@
           </div>
 
           <!-- Service Card 6 -->
-          <div class="service-card">
-            <div class="service-icon">
-              <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M23 7L38 15L23 23L8 15L23 7Z" stroke="#B87BFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M8 21L23 29L38 21" stroke="#A855F7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M8 27L23 35L38 27" stroke="#8B5CF6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
+          <div class="service-card spotlight-card tilt-card reveal-fade-up" style="--delay: 0.35s;">
+            <div class="service-icon-wrapper">
+              <div class="service-icon">
+                <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M23 7L38 15L23 23L8 15L23 7Z" stroke="#B87BFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M8 21L23 29L38 21" stroke="#A855F7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M8 27L23 35L38 27" stroke="#8B5CF6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
             </div>
             <h3 class="service-title">TALKING HEAD</h3>
             <p class="service-desc">
@@ -301,7 +330,7 @@
     <section class="portfolio-section" id="portfolio">
       <div class="container">
         
-        <div class="section-header text-center">
+        <div class="section-header text-center reveal-fade-up">
           <span class="section-tag">PORTFOLIO</span>
           <h2 class="section-heading">
             Project that reflect my<br>
@@ -321,11 +350,11 @@
         <div class="portfolio-grid" id="portfolioGrid">
           
           <!-- Card 1: Gaming Edit -->
-          <div class="portfolio-card" data-category="viral" onclick="openProjectModal('Competitive Gameplay Edits', 'GAMMING EDIT', 'assets/portfolio-gaming.png', 'High-energy cinematic gameplay edit featuring seamless beat synchronization, motion camera zooms, 3D typography, and custom sound design designed to maximize viewer retention.')">
+          <div class="portfolio-card spotlight-card tilt-card reveal-fade-up" data-category="viral" style="--delay: 0.1s;" onclick="openProjectModal('Competitive Gameplay Edits', 'GAMMING EDIT', 'assets/portfolio-gaming.png', 'High-energy cinematic gameplay edit featuring seamless beat synchronization, motion camera zooms, 3D typography, and custom sound design designed to maximize viewer retention.')">
             <div class="card-thumb-wrapper">
               <img src="assets/portfolio-gaming.png" alt="Competitive Gameplay Edits" class="card-thumb">
               <div class="card-overlay">
-                <span class="preview-badge">View Project</span>
+                <span class="preview-badge">View Project ↗</span>
               </div>
             </div>
             <div class="card-info">
@@ -343,11 +372,11 @@
           </div>
 
           <!-- Card 2: UI Animation -->
-          <div class="portfolio-card" data-category="animation" onclick="openProjectModal('Smooth User Interactions', 'UI ANIMATION', 'assets/portfolio-ui.png', 'Modern mobile app UI motion design demonstrating micro-interactions, smooth card transitions, glowing 3D perspective layers, and interactive feedback flows.')">
+          <div class="portfolio-card spotlight-card tilt-card reveal-fade-up" data-category="animation" style="--delay: 0.2s;" onclick="openProjectModal('Smooth User Interactions', 'UI ANIMATION', 'assets/portfolio-ui.png', 'Modern mobile app UI motion design demonstrating micro-interactions, smooth card transitions, glowing 3D perspective layers, and interactive feedback flows.')">
             <div class="card-thumb-wrapper">
               <img src="assets/portfolio-ui.png" alt="Smooth User Interactions" class="card-thumb">
               <div class="card-overlay">
-                <span class="preview-badge">View Project</span>
+                <span class="preview-badge">View Project ↗</span>
               </div>
             </div>
             <div class="card-info">
@@ -365,11 +394,11 @@
           </div>
 
           <!-- Card 3: Talking Head -->
-          <div class="portfolio-card" data-category="talking-head" onclick="openProjectModal('Professional Content Editing', 'TALKING HEAD', 'assets/portfolio-talkinghead.png', 'Crisp creator editing with Alex Hormozi style animated captions, sound effects, pop-up graphics, b-roll insertions, and color grading.')">
+          <div class="portfolio-card spotlight-card tilt-card reveal-fade-up" data-category="talking-head" style="--delay: 0.15s;" onclick="openProjectModal('Professional Content Editing', 'TALKING HEAD', 'assets/portfolio-talkinghead.png', 'Crisp creator editing with Alex Hormozi style animated captions, sound effects, pop-up graphics, b-roll insertions, and color grading.')">
             <div class="card-thumb-wrapper">
               <img src="assets/portfolio-talkinghead.png" alt="Professional Content Editing" class="card-thumb">
               <div class="card-overlay">
-                <span class="preview-badge">View Project</span>
+                <span class="preview-badge">View Project ↗</span>
               </div>
             </div>
             <div class="card-info">
@@ -387,11 +416,11 @@
           </div>
 
           <!-- Card 4: SaaS Animation -->
-          <div class="portfolio-card" data-category="animation" onclick="openProjectModal('Engaging Product Demos', 'SAAS ANIMATION', 'assets/portfolio-saas.png', 'Product showcase video for SaaS platforms highlighting feature workflows, kinetic typography, user benefit callouts, and clean dashboard isometric angles.')">
+          <div class="portfolio-card spotlight-card tilt-card reveal-fade-up" data-category="animation" style="--delay: 0.25s;" onclick="openProjectModal('Engaging Product Demos', 'SAAS ANIMATION', 'assets/portfolio-saas.png', 'Product showcase video for SaaS platforms highlighting feature workflows, kinetic typography, user benefit callouts, and clean dashboard isometric angles.')">
             <div class="card-thumb-wrapper">
               <img src="assets/portfolio-saas.png" alt="Engaging Product Demos" class="card-thumb">
               <div class="card-overlay">
-                <span class="preview-badge">View Project</span>
+                <span class="preview-badge">View Project ↗</span>
               </div>
             </div>
             <div class="card-info">
@@ -409,11 +438,11 @@
           </div>
 
           <!-- Card 5: Viral Reels -->
-          <div class="portfolio-card" data-category="viral" onclick="openProjectModal('High Retention Content', 'VIRAL', 'assets/portfolio-viral.png', 'Short-form Instagram Reels, TikTok, and YouTube Shorts engineered with 3-second hook structures, rapid pacing, eye-catching text animations, and trend sounds.')">
+          <div class="portfolio-card spotlight-card tilt-card reveal-fade-up" data-category="viral" style="--delay: 0.2s;" onclick="openProjectModal('High Retention Content', 'VIRAL', 'assets/portfolio-viral.png', 'Short-form Instagram Reels, TikTok, and YouTube Shorts engineered with 3-second hook structures, rapid pacing, eye-catching text animations, and trend sounds.')">
             <div class="card-thumb-wrapper">
               <img src="assets/portfolio-viral.png" alt="High Retention Content" class="card-thumb">
               <div class="card-overlay">
-                <span class="preview-badge">View Project</span>
+                <span class="preview-badge">View Project ↗</span>
               </div>
             </div>
             <div class="card-info">
@@ -431,11 +460,11 @@
           </div>
 
           <!-- Card 6: Motion Graphics -->
-          <div class="portfolio-card" data-category="animation" onclick="openProjectModal('Dynamic Visual Storytelling', 'MOTION GRAPHICS', 'assets/portfolio-motion.png', 'Complex After Effects and Premiere Pro motion graphics compositions featuring shape animation, kinetic typographic sequences, and brand identity reveals.')">
+          <div class="portfolio-card spotlight-card tilt-card reveal-fade-up" data-category="animation" style="--delay: 0.3s;" onclick="openProjectModal('Dynamic Visual Storytelling', 'MOTION GRAPHICS', 'assets/portfolio-motion.png', 'Complex After Effects and Premiere Pro motion graphics compositions featuring shape animation, kinetic typographic sequences, and brand identity reveals.')">
             <div class="card-thumb-wrapper">
               <img src="assets/portfolio-motion.png" alt="Dynamic Visual Storytelling" class="card-thumb">
               <div class="card-overlay">
-                <span class="preview-badge">View Project</span>
+                <span class="preview-badge">View Project ↗</span>
               </div>
             </div>
             <div class="card-info">
@@ -461,16 +490,16 @@
     <section class="testimonials-section" id="testimonials">
       <div class="container">
         
-        <div class="section-header text-center">
+        <div class="section-header text-center reveal-fade-up">
           <span class="section-tag">TESTIMONIALS</span>
           <h2 class="section-heading">What client Say</h2>
         </div>
 
-        <div class="testimonials-slider-container">
+        <div class="testimonials-slider-container reveal-scale">
           <div class="testimonials-track" id="testimonialTrack">
             
             <!-- Testimonial 1 -->
-            <div class="testimonial-card">
+            <div class="testimonial-card spotlight-card active" data-slide="0">
               <p class="testimonial-quote">
                 "Arpit understood exactly what I wanted and delivered a clean, engaging edit that exceeded my expectations."
               </p>
@@ -484,7 +513,7 @@
             </div>
 
             <!-- Testimonial 2 -->
-            <div class="testimonial-card">
+            <div class="testimonial-card spotlight-card" data-slide="1">
               <p class="testimonial-quote">
                 "Working with Arpit was smooth and hassle-free. Every revision was handled quickly and professionally."
               </p>
@@ -501,8 +530,8 @@
 
           <!-- Dots Indicator -->
           <div class="testimonial-dots" id="testimonialDots">
-            <button class="t-dot active" aria-label="Slide 1"></button>
-            <button class="t-dot" aria-label="Slide 2"></button>
+            <button class="t-dot active" data-index="0" aria-label="Slide 1"></button>
+            <button class="t-dot" data-index="1" aria-label="Slide 2"></button>
           </div>
         </div>
 
@@ -512,10 +541,11 @@
     <!-- CTA / OPPORTUNITIES BANNER -->
     <section class="cta-section" id="cta">
       <div class="container">
-        <div class="cta-box">
+        <div class="cta-box spotlight-card reveal-scale">
           <div class="cta-glow"></div>
           
           <div class="badge-pill cta-badge">
+            <span class="status-dot"></span>
             <span class="sparkle-icon">✦</span>
             <span>Available For Opportunities</span>
           </div>
@@ -523,10 +553,10 @@
           <h2 class="cta-heading">
             Let’s work together to<br>
             transform your ideas into<br>
-            stunning designs
+            <span class="gradient-headline">stunning designs</span>
           </h2>
 
-          <button class="btn btn-pill-white btn-cta" onclick="openContactModal()">Hire Me Now</button>
+          <button class="btn btn-pill-white btn-cta magnetic-btn pulse-glow" onclick="openContactModal()">Hire Me Now</button>
         </div>
       </div>
     </section>
@@ -543,7 +573,7 @@
       <!-- Social Media Links -->
       <div class="footer-socials">
         <!-- Instagram -->
-        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon magnetic-btn" aria-label="Instagram">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
             <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
@@ -552,7 +582,7 @@
         </a>
 
         <!-- LinkedIn -->
-        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon magnetic-btn" aria-label="LinkedIn">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
             <rect x="2" y="9" width="4" height="12"></rect>
@@ -561,7 +591,7 @@
         </a>
 
         <!-- Behance / Dribbble -->
-        <a href="https://behance.net" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Behance">
+        <a href="https://behance.net" target="_blank" rel="noopener noreferrer" class="social-icon magnetic-btn" aria-label="Behance">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="10"></circle>
             <path d="M19.13 5.09C15.22 9.14 10 10.44 2.25 10.94"></path>
@@ -571,7 +601,7 @@
         </a>
 
         <!-- YouTube / Video -->
-        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="YouTube">
+        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-icon magnetic-btn" aria-label="YouTube">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
             <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
@@ -585,6 +615,14 @@
 
     </div>
   </footer>
+
+  <!-- Floating Back to Top Button -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="12" y1="19" x2="12" y2="5"></line>
+      <polyline points="5 12 12 5 19 12"></polyline>
+    </svg>
+  </button>
 
   <!-- CONTACT / HIRE ME MODAL -->
   <div class="modal-backdrop" id="contactModal">
@@ -625,7 +663,7 @@
           <textarea id="projectMessage" rows="3" placeholder="Tell me about your video requirements, timeline, and goals..." required></textarea>
         </div>
 
-        <button type="submit" class="btn btn-pill-white w-full">Send Message ✦</button>
+        <button type="submit" class="btn btn-pill-white w-full magnetic-btn">Send Message ✦</button>
         <p class="form-status" id="formStatus"></p>
       </form>
     </div>
@@ -653,8 +691,75 @@
         <p class="lightbox-desc" id="modalDesc">Project description goes here...</p>
 
         <div class="lightbox-actions">
-          <button class="btn btn-pill-white" onclick="closeProjectModal(); openContactModal();">Hire for Similar Project</button>
+          <button class="btn btn-pill-white magnetic-btn" onclick="closeProjectModal(); openContactModal();">Hire for Similar Project</button>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROPE TRIGGERED PROFILE MODAL -->
+  <div class="modal-backdrop" id="profileModal">
+    <div class="modal-card profile-dossier-card">
+      <button class="modal-close" onclick="closeProfileModal()" aria-label="Close modal">&times;</button>
+
+      <div class="profile-header-strip">
+        <div class="profile-avatar-box">
+          <img src="assets/about-portrait.png" alt="Arpit Profile" class="profile-avatar-img">
+          <span class="profile-status-online" title="Available for projects"></span>
+        </div>
+        <div class="profile-title-box">
+          <div class="badge-pill profile-badge">
+            <span class="sparkle-icon">✦</span>
+            <span>Motion & SaaS Designer</span>
+          </div>
+          <h2 class="profile-name">Arpit</h2>
+          <p class="profile-role">Video Editor & Creative UI Motion Specialist</p>
+        </div>
+      </div>
+
+      <div class="profile-bio-box">
+        <p>
+          Hey! I'm Arpit, a dedicated motion designer and video editor helping forward-thinking brands, SaaS startups, and high-impact creators stand out with retention-driven visual storytelling.
+        </p>
+      </div>
+
+      <!-- Quick Metrics Grid -->
+      <div class="profile-stats-grid">
+        <div class="p-stat-item">
+          <span class="p-stat-num">02+</span>
+          <span class="p-stat-lbl">Years Exp.</span>
+        </div>
+        <div class="p-stat-item">
+          <span class="p-stat-num">43+</span>
+          <span class="p-stat-lbl">Projects</span>
+        </div>
+        <div class="p-stat-item">
+          <span class="p-stat-num">33+</span>
+          <span class="p-stat-lbl">Clients</span>
+        </div>
+        <div class="p-stat-item">
+          <span class="p-stat-num">10M+</span>
+          <span class="p-stat-lbl">Views</span>
+        </div>
+      </div>
+
+      <!-- Software & Skills Pills -->
+      <div class="profile-skills-box">
+        <h4 class="profile-skills-title">Core Toolkit & Expertise</h4>
+        <div class="profile-skill-pills">
+          <span class="skill-tag">After Effects</span>
+          <span class="skill-tag">Premiere Pro</span>
+          <span class="skill-tag">SaaS UI Animation</span>
+          <span class="skill-tag">Viral Reels</span>
+          <span class="skill-tag">Talking Head</span>
+          <span class="skill-tag">Gaming Edits</span>
+          <span class="skill-tag">Sound Design</span>
+        </div>
+      </div>
+
+      <div class="profile-modal-actions">
+        <button class="btn btn-pill-white magnetic-btn pulse-glow" onclick="closeProfileModal(); openContactModal();">Hire Arpit Now ✦</button>
+        <button class="btn btn-pill-outline magnetic-btn" onclick="closeProfileModal(); document.getElementById('about').scrollIntoView({behavior: 'smooth'});">Full About Story</button>
       </div>
     </div>
   </div>
@@ -662,4 +767,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
