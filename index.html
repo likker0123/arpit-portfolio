@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARPIT | Motion Graphic / SaaS Designer / UI Animation</title>
+  <meta name="description" content="Portfolio of Arpit - Motion Graphic, SaaS Designer, UI Animation & Video Editor. Crafting content that captures attention.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Ambient Background Glows -->
+  <div class="ambient-glow glow-top"></div>
+  <div class="ambient-glow glow-middle"></div>
+  <div class="ambient-glow glow-bottom"></div>
+  <div class="bg-grid-pattern"></div>
+
+  <!-- Header / Navigation -->
+  <header class="site-header" id="header">
+    <div class="header-container">
+      <a href="#hero" class="brand-logo">
+        <span class="sparkle">✦</span> ARPIT
+      </a>
+
+      <nav class="nav-pill" id="navbar">
+        <ul class="nav-links">
+          <li><a href="#hero" class="nav-link active">HOME</a></li>
+          <li><a href="#about" class="nav-link">ABOUT</a></li>
+          <li><a href="#services" class="nav-link">SERVICES</a></li>
+          <li><a href="#portfolio" class="nav-link">PORTFOLIO</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-action">
+        <button class="btn btn-pill-white btn-hire-me" onclick="openContactModal()">Hire Me</button>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <ul class="mobile-nav-links">
+        <li><a href="#hero" class="mobile-nav-link">HOME</a></li>
+        <li><a href="#about" class="mobile-nav-link">ABOUT</a></li>
+        <li><a href="#services" class="mobile-nav-link">SERVICES</a></li>
+        <li><a href="#portfolio" class="mobile-nav-link">PORTFOLIO</a></li>
+        <li><button class="btn btn-pill-white w-full" onclick="openContactModal(); closeMobileMenu();">Hire Me</button></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-container">
+        
+        <!-- Left Hero Content -->
+        <div class="hero-content">
+          <div class="badge-pill">
+            <span class="sparkle-icon">✦</span>
+            <span>Available For Opportunities</span>
+          </div>
+
+          <h1 class="hero-title">
+            Hey, I’am <span class="highlight-name">Arpit</span><br>
+            Motion Graphic/SaaS<br>
+            Designer /UI Animation .
+          </h1>
+
+          <p class="hero-subtitle">
+            Building professional, user-friendly Videos that support functionality and boost user engagement.
+          </p>
+
+          <div class="hero-actions">
+            <button class="btn btn-pill-white" onclick="openContactModal()">Let’s Talk</button>
+            <a href="#portfolio" class="btn btn-pill-outline">My Works</a>
+          </div>
+        </div>
+
+        <!-- Right Hero Visual -->
+        <div class="hero-visual">
+          <div class="hero-card-glow"></div>
+          <div class="hero-card">
+            <img src="assets/hero-portrait.png" alt="Arpit - Motion Graphic & SaaS Designer" class="hero-avatar">
+          </div>
+          
+          <!-- Spinning Circular Badge -->
+          <div class="circular-badge-wrapper">
+            <div class="circular-badge-glow"></div>
+            <img src="assets/circular-badge.png" alt="Creative Video Editor Badge" class="circular-badge-img">
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TICKER / MARQUEE BANNER -->
+    <div class="ticker-banner" aria-hidden="true">
+      <div class="ticker-track">
+        <div class="ticker-group">
+          <span class="ticker-item"><span class="t-sparkle">✦</span> SAAS ANIMATION</span>
+          <span class="ticker-item"><span class="t-sparkle">✦</span> MOTION GRAPHICS</span>
+          <span class="ticker-item"><span class="t-sparkle">✦</span> VIRAL REEL</span>
+          <span class="ticker-item"><span class="t-sparkle">✦</span> TALKING HEAD</span>
+          <span class="ticker-item"><span class="t-sparkle">✦</span> UI ANIMATION</span>
+        </div>
+        <!-- Duplicated for continuous infinite scrolling -->
+        <div class="ticker-group">
+          <span class="ticker-item"><span class="t-sparkle">✦</span> SAAS ANIMATION</span>
+          <span class="ticker-item"><span class="t-sparkle">✦</span> MOTION GRAPHICS</span>
+          <span class="ticker-item"><span class="t-sparkle">✦</span> VIRAL REEL</span>
+          <span class="ticker-item"><span class="t-sparkle">✦</span> TALKING HEAD</span>
+          <span class="ticker-item"><span class="t-sparkle">✦</span> UI ANIMATION</span>
+        </div>
+        <div class="ticker-group">
+          <span class="ticker-item"><span class="t-sparkle">✦</span> SAAS ANIMATION</span>
+          <span class="ticker-item"><span class="t-sparkle">✦</span> MOTION GRAPHICS</span>
+          <span class="ticker-item"><span class="t-sparkle">✦</span> VIRAL REEL</span>
+          <span class="ticker-item"><span class="t-sparkle">✦</span> TALKING HEAD</span>
+          <span class="ticker-item"><span class="t-sparkle">✦</span> UI ANIMATION</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ABOUT ME SECTION -->
+    <section class="about-section" id="about">
+      <div class="container">
+        
+        <div class="about-grid">
+          <!-- Left Avatar with Glow -->
+          <div class="about-visual">
+            <div class="about-circle-glow"></div>
+            <div class="about-avatar-wrapper">
+              <img src="assets/about-portrait.png" alt="Arpit Profile" class="about-avatar-img">
+            </div>
+          </div>
+
+          <!-- Right Content -->
+          <div class="about-content">
+            <span class="section-tag">ABOUT ME</span>
+            <h2 class="about-title">
+              I'm a Video Editor<br>
+              Crafting Content That<br>
+              Captures Attention
+            </h2>
+
+            <div class="about-text">
+              <p>
+                I'm Arpit, a video editor focused on turning ideas into engaging, high-quality content. I help creators and brands craft videos that capture attention, tell a clear story, and leave a lasting impression.
+              </p>
+              <p>
+                I focus on creating videos that not only look great but also help creators connect with their audience and grow their presence.
+              </p>
+            </div>
+
+            <div class="about-action">
+              <button class="btn btn-pill-white" onclick="openContactModal()">Visit Profile</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stats Counters -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-number" data-target="2">02+</div>
+            <div class="stat-label">Years of experience</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-number" data-target="43">43+</div>
+            <div class="stat-label">Project Completed</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-number" data-target="33">33+</div>
+            <div class="stat-label">Client Satisfaction</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section class="services-section" id="services">
+      <div class="container">
+        
+        <div class="section-header text-center">
+          <span class="section-tag">SERVICES</span>
+          <h2 class="section-heading">My Specialties</h2>
+        </div>
+
+        <div class="services-grid">
+          
+          <!-- Service Card 1 -->
+          <div class="service-card">
+            <div class="service-icon">
+              <!-- 3D Isometric Diamond Layered Icon -->
+              <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M23 7L38 15L23 23L8 15L23 7Z" stroke="#B87BFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8 21L23 29L38 21" stroke="#A855F7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8 27L23 35L38 27" stroke="#8B5CF6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="service-title">MOTION GRAPHICS</h3>
+            <p class="service-desc">
+              Engaging motion graphics that simplify ideas and make content more memorable.
+            </p>
+          </div>
+
+          <!-- Service Card 2 -->
+          <div class="service-card">
+            <div class="service-icon">
+              <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M23 7L38 15L23 23L8 15L23 7Z" stroke="#B87BFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8 21L23 29L38 21" stroke="#A855F7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8 27L23 35L38 27" stroke="#8B5CF6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="service-title">UI ANIMATION</h3>
+            <p class="service-desc">
+              Smooth and modern UI animations that enhance user experience and product presentation.
+            </p>
+          </div>
+
+          <!-- Service Card 3 -->
+          <div class="service-card">
+            <div class="service-icon">
+              <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M23 7L38 15L23 23L8 15L23 7Z" stroke="#B87BFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8 21L23 29L38 21" stroke="#A855F7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8 27L23 35L38 27" stroke="#8B5CF6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="service-title">SAAS ANIMATION</h3>
+            <p class="service-desc">
+              Product demos and explainer videos that showcase SaaS features with clarity and impact.
+            </p>
+          </div>
+
+          <!-- Service Card 4 -->
+          <div class="service-card">
+            <div class="service-icon">
+              <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M23 7L38 15L23 23L8 15L23 7Z" stroke="#B87BFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8 21L23 29L38 21" stroke="#A855F7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8 27L23 35L38 27" stroke="#8B5CF6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="service-title">VIRAL REEL</h3>
+            <p class="service-desc">
+              Fast-paced, attention-grabbing reels designed to increase reach and engagement.
+            </p>
+          </div>
+
+          <!-- Service Card 5 -->
+          <div class="service-card">
+            <div class="service-icon">
+              <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M23 7L38 15L23 23L8 15L23 7Z" stroke="#B87BFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8 21L23 29L38 21" stroke="#A855F7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8 27L23 35L38 27" stroke="#8B5CF6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="service-title">GAMMING EDIT</h3>
+            <p class="service-desc">
+              Bringing ideas to life through creative animation.
+            </p>
+          </div>
+
+          <!-- Service Card 6 -->
+          <div class="service-card">
+            <div class="service-icon">
+              <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M23 7L38 15L23 23L8 15L23 7Z" stroke="#B87BFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8 21L23 29L38 21" stroke="#A855F7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8 27L23 35L38 27" stroke="#8B5CF6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="service-title">TALKING HEAD</h3>
+            <p class="service-desc">
+              Professional editing for talking-head videos with clean cuts, captions, and dynamic visuals.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PORTFOLIO SECTION -->
+    <section class="portfolio-section" id="portfolio">
+      <div class="container">
+        
+        <div class="section-header text-center">
+          <span class="section-tag">PORTFOLIO</span>
+          <h2 class="section-heading">
+            Project that reflect my<br>
+            experience and vision
+          </h2>
+
+          <!-- Filter Tabs -->
+          <div class="portfolio-filters" id="portfolioFilters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="viral">VIRAL</button>
+            <button class="filter-btn" data-filter="talking-head">TALKING HEAD</button>
+            <button class="filter-btn" data-filter="animation">ANIMATION</button>
+          </div>
+        </div>
+
+        <!-- Portfolio Cards Grid -->
+        <div class="portfolio-grid" id="portfolioGrid">
+          
+          <!-- Card 1: Gaming Edit -->
+          <div class="portfolio-card" data-category="viral" onclick="openProjectModal('Competitive Gameplay Edits', 'GAMMING EDIT', 'assets/portfolio-gaming.png', 'High-energy cinematic gameplay edit featuring seamless beat synchronization, motion camera zooms, 3D typography, and custom sound design designed to maximize viewer retention.')">
+            <div class="card-thumb-wrapper">
+              <img src="assets/portfolio-gaming.png" alt="Competitive Gameplay Edits" class="card-thumb">
+              <div class="card-overlay">
+                <span class="preview-badge">View Project</span>
+              </div>
+            </div>
+            <div class="card-info">
+              <div class="card-text">
+                <span class="card-category">GAMMING EDIT</span>
+                <h4 class="card-title">Competitive Gameplay Edits</h4>
+              </div>
+              <div class="card-arrow" aria-label="Open project">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: UI Animation -->
+          <div class="portfolio-card" data-category="animation" onclick="openProjectModal('Smooth User Interactions', 'UI ANIMATION', 'assets/portfolio-ui.png', 'Modern mobile app UI motion design demonstrating micro-interactions, smooth card transitions, glowing 3D perspective layers, and interactive feedback flows.')">
+            <div class="card-thumb-wrapper">
+              <img src="assets/portfolio-ui.png" alt="Smooth User Interactions" class="card-thumb">
+              <div class="card-overlay">
+                <span class="preview-badge">View Project</span>
+              </div>
+            </div>
+            <div class="card-info">
+              <div class="card-text">
+                <span class="card-category">UI ANIMATION</span>
+                <h4 class="card-title">Smooth User Interactions</h4>
+              </div>
+              <div class="card-arrow" aria-label="Open project">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Talking Head -->
+          <div class="portfolio-card" data-category="talking-head" onclick="openProjectModal('Professional Content Editing', 'TALKING HEAD', 'assets/portfolio-talkinghead.png', 'Crisp creator editing with Alex Hormozi style animated captions, sound effects, pop-up graphics, b-roll insertions, and color grading.')">
+            <div class="card-thumb-wrapper">
+              <img src="assets/portfolio-talkinghead.png" alt="Professional Content Editing" class="card-thumb">
+              <div class="card-overlay">
+                <span class="preview-badge">View Project</span>
+              </div>
+            </div>
+            <div class="card-info">
+              <div class="card-text">
+                <span class="card-category">TALKING HEAD</span>
+                <h4 class="card-title">Professional Content Editing</h4>
+              </div>
+              <div class="card-arrow" aria-label="Open project">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: SaaS Animation -->
+          <div class="portfolio-card" data-category="animation" onclick="openProjectModal('Engaging Product Demos', 'SAAS ANIMATION', 'assets/portfolio-saas.png', 'Product showcase video for SaaS platforms highlighting feature workflows, kinetic typography, user benefit callouts, and clean dashboard isometric angles.')">
+            <div class="card-thumb-wrapper">
+              <img src="assets/portfolio-saas.png" alt="Engaging Product Demos" class="card-thumb">
+              <div class="card-overlay">
+                <span class="preview-badge">View Project</span>
+              </div>
+            </div>
+            <div class="card-info">
+              <div class="card-text">
+                <span class="card-category">SAAS ANIMATION</span>
+                <h4 class="card-title">Engaging Product Demos</h4>
+              </div>
+              <div class="card-arrow" aria-label="Open project">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5: Viral Reels -->
+          <div class="portfolio-card" data-category="viral" onclick="openProjectModal('High Retention Content', 'VIRAL', 'assets/portfolio-viral.png', 'Short-form Instagram Reels, TikTok, and YouTube Shorts engineered with 3-second hook structures, rapid pacing, eye-catching text animations, and trend sounds.')">
+            <div class="card-thumb-wrapper">
+              <img src="assets/portfolio-viral.png" alt="High Retention Content" class="card-thumb">
+              <div class="card-overlay">
+                <span class="preview-badge">View Project</span>
+              </div>
+            </div>
+            <div class="card-info">
+              <div class="card-text">
+                <span class="card-category">VIRAL</span>
+                <h4 class="card-title">High Retention Content</h4>
+              </div>
+              <div class="card-arrow" aria-label="Open project">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 6: Motion Graphics -->
+          <div class="portfolio-card" data-category="animation" onclick="openProjectModal('Dynamic Visual Storytelling', 'MOTION GRAPHICS', 'assets/portfolio-motion.png', 'Complex After Effects and Premiere Pro motion graphics compositions featuring shape animation, kinetic typographic sequences, and brand identity reveals.')">
+            <div class="card-thumb-wrapper">
+              <img src="assets/portfolio-motion.png" alt="Dynamic Visual Storytelling" class="card-thumb">
+              <div class="card-overlay">
+                <span class="preview-badge">View Project</span>
+              </div>
+            </div>
+            <div class="card-info">
+              <div class="card-text">
+                <span class="card-category">MOTION GRAPHICS</span>
+                <h4 class="card-title">Dynamic Visual Storytelling</h4>
+              </div>
+              <div class="card-arrow" aria-label="Open project">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section class="testimonials-section" id="testimonials">
+      <div class="container">
+        
+        <div class="section-header text-center">
+          <span class="section-tag">TESTIMONIALS</span>
+          <h2 class="section-heading">What client Say</h2>
+        </div>
+
+        <div class="testimonials-slider-container">
+          <div class="testimonials-track" id="testimonialTrack">
+            
+            <!-- Testimonial 1 -->
+            <div class="testimonial-card">
+              <p class="testimonial-quote">
+                "Arpit understood exactly what I wanted and delivered a clean, engaging edit that exceeded my expectations."
+              </p>
+              <div class="testimonial-footer">
+                <div class="client-meta">
+                  <h4 class="client-name">Anshul</h4>
+                  <span class="client-role">PODCAST</span>
+                </div>
+                <div class="quote-glyph">”</div>
+              </div>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="testimonial-card">
+              <p class="testimonial-quote">
+                "Working with Arpit was smooth and hassle-free. Every revision was handled quickly and professionally."
+              </p>
+              <div class="testimonial-footer">
+                <div class="client-meta">
+                  <h4 class="client-name">Ayush</h4>
+                  <span class="client-role">GAMMING</span>
+                </div>
+                <div class="quote-glyph">”</div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Dots Indicator -->
+          <div class="testimonial-dots" id="testimonialDots">
+            <button class="t-dot active" aria-label="Slide 1"></button>
+            <button class="t-dot" aria-label="Slide 2"></button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CTA / OPPORTUNITIES BANNER -->
+    <section class="cta-section" id="cta">
+      <div class="container">
+        <div class="cta-box">
+          <div class="cta-glow"></div>
+          
+          <div class="badge-pill cta-badge">
+            <span class="sparkle-icon">✦</span>
+            <span>Available For Opportunities</span>
+          </div>
+
+          <h2 class="cta-heading">
+            Let’s work together to<br>
+            transform your ideas into<br>
+            stunning designs
+          </h2>
+
+          <button class="btn btn-pill-white btn-cta" onclick="openContactModal()">Hire Me Now</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      
+      <div class="footer-brand">
+        <span class="sparkle">✦</span> ARPIT EDITZ
+      </div>
+
+      <!-- Social Media Links -->
+      <div class="footer-socials">
+        <!-- Instagram -->
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+        </a>
+
+        <!-- LinkedIn -->
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+            <rect x="2" y="9" width="4" height="12"></rect>
+            <circle cx="4" cy="4" r="2"></circle>
+          </svg>
+        </a>
+
+        <!-- Behance / Dribbble -->
+        <a href="https://behance.net" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Behance">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M19.13 5.09C15.22 9.14 10 10.44 2.25 10.94"></path>
+            <path d="M21.75 12.84c-6.62-1.41-12.14 1-16.38 6.32"></path>
+            <path d="M8.56 2.75c4.37 6 6 9.42 8 17.72"></path>
+          </svg>
+        </a>
+
+        <!-- YouTube / Video -->
+        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="YouTube">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+            <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+          </svg>
+        </a>
+      </div>
+
+      <div class="footer-copyright">
+        @2026 Editz. All Right Reversed
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- CONTACT / HIRE ME MODAL -->
+  <div class="modal-backdrop" id="contactModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeContactModal()" aria-label="Close modal">&times;</button>
+      
+      <div class="modal-header">
+        <span class="badge-pill modal-badge"><span class="sparkle-icon">✦</span> Get In Touch</span>
+        <h3 class="modal-title">Let’s Start a Project</h3>
+        <p class="modal-subtitle">Tell me about your vision, video editing needs, or SaaS animation project.</p>
+      </div>
+
+      <form class="contact-form" id="contactForm" onsubmit="handleContactSubmit(event)">
+        <div class="form-group">
+          <label for="clientName">Your Name</label>
+          <input type="text" id="clientName" placeholder="e.g. Alex Sharma" required>
+        </div>
+
+        <div class="form-group">
+          <label for="clientEmail">Email Address</label>
+          <input type="email" id="clientEmail" placeholder="e.g. alex@company.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="projectType">Service Interested In</label>
+          <select id="projectType">
+            <option value="Motion Graphics">Motion Graphics</option>
+            <option value="UI Animation">UI Animation</option>
+            <option value="SaaS Animation">SaaS Animation</option>
+            <option value="Viral Reels">Viral Reels / TikTok</option>
+            <option value="Talking Head">Talking Head Editing</option>
+            <option value="Gaming Edit">Gaming Edit</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="projectMessage">Project Details</label>
+          <textarea id="projectMessage" rows="3" placeholder="Tell me about your video requirements, timeline, and goals..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-pill-white w-full">Send Message ✦</button>
+        <p class="form-status" id="formStatus"></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- PROJECT PREVIEW MODAL LIGHTBOX -->
+  <div class="modal-backdrop" id="projectModal">
+    <div class="modal-card project-lightbox-card">
+      <button class="modal-close" onclick="closeProjectModal()" aria-label="Close modal">&times;</button>
+      
+      <div class="lightbox-img-wrapper">
+        <img id="modalImg" src="" alt="Project Showcase" class="lightbox-img">
+        <div class="lightbox-play-overlay">
+          <div class="play-pulse-circle">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="lightbox-content">
+        <span class="card-category" id="modalCategory">CATEGORY</span>
+        <h3 class="lightbox-title" id="modalTitle">Project Title</h3>
+        <p class="lightbox-desc" id="modalDesc">Project description goes here...</p>
+
+        <div class="lightbox-actions">
+          <button class="btn btn-pill-white" onclick="closeProjectModal(); openContactModal();">Hire for Similar Project</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
