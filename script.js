@@ -853,19 +853,92 @@ function closeMobileMenu() {
 
 function handleContactSubmit(event) {
   event.preventDefault();
+  const form = document.getElementById('contactForm');
   const status = document.getElementById('formStatus');
-  const name = document.getElementById('clientName').value;
+  const submitBtn = document.getElementById('submitBtn');
   
-  if (status) {
-    status.style.color = '#34d399';
-    status.textContent = `Thanks ${name}! Your inquiry has been sent. Arpit will reach out shortly.`;
-    
-    setTimeout(() => {
-      event.target.reset();
-      status.textContent = '';
-      closeContactModal();
-    }, 2400);
+  const name = document.getElementById('clientName').value.trim();
+  const email = document.getElementById('clientEmail').value.trim();
+  const phone = document.getElementById('clientPhone') ? document.getElementById('clientPhone').value.trim() : '';
+  const service = document.getElementById('projectType').value;
+  const message = document.getElementById('projectMessage').value.trim();
+
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending... ✦';
   }
+
+  if (status) {
+    status.style.color = '#c084fc';
+    status.textContent = 'Sending inquiry to anshulsingh11110@gmail.com...';
+  }
+
+  // Send asynchronously via FormSubmit AJAX API directly to user's Gmail
+  fetch("https://formsubmit.co/ajax/anshulsingh11110@gmail.com", {
+    method: "POST",
+    headers: { 
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    body: JSON.stringify({
+      name: name,
+      email: email,
+      phone: phone || 'Not provided',
+      service: service,
+      message: message,
+      _subject: `New Portfolio Inquiry from ${name} - ${service}`
+    })
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (status) {
+      status.style.color = '#34d399';
+      status.innerHTML = `✓ Thank you ${name}! Your inquiry has been sent to anshulsingh11110@gmail.com. Arpit will reach out shortly.`;
+    }
+    if (form) form.reset();
+    setTimeout(() => {
+      closeContactModal();
+      if (status) status.textContent = '';
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send to Email ✦';
+      }
+    }, 3200);
+  })
+  .catch(error => {
+    // Graceful offline / fallback handler
+    if (status) {
+      status.style.color = '#34d399';
+      status.innerHTML = `✓ Thank you ${name}! Opening email & WhatsApp for instant delivery...`;
+    }
+    // Fallback: Trigger mailto & offer WhatsApp
+    const mailtoUrl = `mailto:anshulsingh11110@gmail.com?subject=${encodeURIComponent('Project Inquiry: ' + service + ' from ' + name)}&body=${encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nPhone: ' + phone + '\nService: ' + service + '\n\nDetails:\n' + message)}`;
+    window.location.href = mailtoUrl;
+
+    if (form) form.reset();
+    setTimeout(() => {
+      closeContactModal();
+      if (status) status.textContent = '';
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send to Email ✦';
+      }
+    }, 2800);
+  });
+}
+
+// Instant WhatsApp Sender
+function sendViaWhatsApp() {
+  const name = document.getElementById('clientName').value.trim() || 'Client';
+  const email = document.getElementById('clientEmail').value.trim() || 'Not specified';
+  const phone = document.getElementById('clientPhone') ? document.getElementById('clientPhone').value.trim() : '';
+  const service = document.getElementById('projectType').value;
+  const message = document.getElementById('projectMessage').value.trim() || 'I want to discuss a new video project.';
+
+  const text = `Hi Arpit!\n\nI visited your portfolio and want to discuss a project.\n\n*Name:* ${name}\n*Email:* ${email}\n*Phone:* ${phone}\n*Service:* ${service}\n\n*Project Details:*\n${message}`;
+  
+  const waUrl = `https://wa.me/918303287176?text=${encodeURIComponent(text)}`;
+  window.open(waUrl, '_blank');
 }
 
 /* ====================================================
