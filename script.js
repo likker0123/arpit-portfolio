@@ -989,3 +989,31 @@ function closeProfileModal() {
     document.body.style.overflow = '';
   }
 }
+
+/* ====================================================
+   LIVE BADGE TOGGLE & INTERACTION
+==================================================== */
+let currentLiveBadgeIndex = 0;
+const liveBadgeImages = [
+  { src: 'assets/live-badge.png', label: 'Live Video & Motion Studio' },
+  { src: 'assets/live-arpit.png', label: 'Arpit - Motion Designer' }
+];
+
+function toggleLiveBadge() {
+  const badgeImg = document.getElementById('heroBadgeImg');
+  if (!badgeImg) return;
+  
+  currentLiveBadgeIndex = (currentLiveBadgeIndex + 1) % liveBadgeImages.length;
+  const nextItem = liveBadgeImages[currentLiveBadgeIndex];
+
+  badgeImg.style.transition = 'transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease';
+  badgeImg.style.transform = 'scale(0.7) rotate(15deg)';
+  badgeImg.style.opacity = '0.3';
+  
+  setTimeout(() => {
+    badgeImg.src = nextItem.src;
+    badgeImg.alt = nextItem.label;
+    badgeImg.style.transform = 'scale(1) rotate(0deg)';
+    badgeImg.style.opacity = '1';
+  }, 220);
+}

@@ -112,10 +112,17 @@
             <img src="assets/hero-portrait.png" alt="Arpit - Motion Graphic & SaaS Designer" class="hero-avatar">
           </div>
           
-          <!-- Spinning Circular Badge -->
-          <div class="circular-badge-wrapper">
+          <!-- Spinning Circular Badge with Live Image -->
+          <div class="circular-badge-wrapper" id="heroBadgeWrapper" onclick="toggleLiveBadge()" title="Click to switch live image">
             <div class="circular-badge-glow"></div>
-            <img src="assets/circular-badge.png" alt="Creative Video Editor Badge" class="circular-badge-img">
+            <div class="circular-badge-spin-ring"></div>
+            <div class="circular-badge-inner">
+              <img src="assets/live-badge.png" alt="Live Video Editor & Motion Graphics" class="circular-badge-img" id="heroBadgeImg">
+            </div>
+            <div class="badge-live-tag">
+              <span class="badge-live-dot"></span>
+              <span>LIVE</span>
+            </div>
           </div>
         </div>
 
