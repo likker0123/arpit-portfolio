@@ -994,14 +994,19 @@ function sendViaWhatsApp() {
 }
 
 /* ====================================================
-   PROJECT LIGHTBOX CONTROLS
+   PROJECT LIGHTBOX & VIDEO CONTROLS
 ==================================================== */
-function openProjectModal(title, category, imageSrc, description) {
+let currentProjectVideoUrl = 'assets/project-video.mp4';
+
+function openProjectModal(title, category, imageSrc, description, videoUrl) {
   const modal = document.getElementById('projectModal');
   const modalTitle = document.getElementById('modalTitle');
   const modalCategory = document.getElementById('modalCategory');
   const modalImg = document.getElementById('modalImg');
   const modalDesc = document.getElementById('modalDesc');
+  const modalVideo = document.getElementById('modalVideo');
+  const playOverlay = document.getElementById('lightboxPlayOverlay');
+  const toggleBtn = document.getElementById('modalToggleVideoBtn');
 
   if (modal && modalTitle && modalCategory && modalImg && modalDesc) {
     modalTitle.textContent = title;
@@ -1010,13 +1015,73 @@ function openProjectModal(title, category, imageSrc, description) {
     modalImg.alt = title;
     modalDesc.textContent = description;
 
+    currentProjectVideoUrl = videoUrl || 'assets/project-video.mp4';
+
+    if (videoUrl && modalVideo) {
+      modalVideo.src = videoUrl;
+      modalVideo.style.display = 'block';
+      modalImg.style.display = 'none';
+      if (playOverlay) playOverlay.style.display = 'none';
+      if (toggleBtn) toggleBtn.textContent = '🖼️ View Thumbnail';
+      modalVideo.load();
+      modalVideo.play().catch(() => {});
+    } else {
+      if (modalVideo) {
+        modalVideo.pause();
+        modalVideo.style.display = 'none';
+      }
+      modalImg.style.display = 'block';
+      if (playOverlay) playOverlay.style.display = 'flex';
+      if (toggleBtn) toggleBtn.textContent = '▶ Watch Video';
+    }
+
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
   }
 }
 
+function startModalVideo() {
+  const modalVideo = document.getElementById('modalVideo');
+  const modalImg = document.getElementById('modalImg');
+  const playOverlay = document.getElementById('lightboxPlayOverlay');
+  const toggleBtn = document.getElementById('modalToggleVideoBtn');
+
+  if (modalVideo) {
+    modalVideo.src = currentProjectVideoUrl || 'assets/project-video.mp4';
+    modalVideo.style.display = 'block';
+    if (modalImg) modalImg.style.display = 'none';
+    if (playOverlay) playOverlay.style.display = 'none';
+    if (toggleBtn) toggleBtn.textContent = '🖼️ View Thumbnail';
+    modalVideo.load();
+    modalVideo.play().catch(() => {});
+  }
+}
+
+function toggleModalMedia() {
+  const modalVideo = document.getElementById('modalVideo');
+  const modalImg = document.getElementById('modalImg');
+  const playOverlay = document.getElementById('lightboxPlayOverlay');
+  const toggleBtn = document.getElementById('modalToggleVideoBtn');
+
+  if (!modalVideo) return;
+
+  if (modalVideo.style.display === 'block') {
+    modalVideo.pause();
+    modalVideo.style.display = 'none';
+    if (modalImg) modalImg.style.display = 'block';
+    if (playOverlay) playOverlay.style.display = 'flex';
+    if (toggleBtn) toggleBtn.textContent = '▶ Watch Video';
+  } else {
+    startModalVideo();
+  }
+}
+
 function closeProjectModal() {
   const modal = document.getElementById('projectModal');
+  const modalVideo = document.getElementById('modalVideo');
+  if (modalVideo) {
+    modalVideo.pause();
+  }
   if (modal) {
     modal.classList.remove('active');
     document.body.style.overflow = '';
