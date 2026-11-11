@@ -99,6 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let dotY = mouseY;
     let glowX = mouseX;
     let glowY = mouseY;
+    let isHovered = false;
 
     window.addEventListener('mousemove', (e) => {
       mouseX = e.clientX;
@@ -112,7 +113,8 @@ document.addEventListener('DOMContentLoaded', () => {
       glowX += (mouseX - glowX) * 0.12;
       glowY += (mouseY - glowY) * 0.12;
 
-      cursorDot.style.transform = `translate3d(${dotX}px, ${dotY}px, 0) translate(-50%, -50%)`;
+      const scale = isHovered ? 2.2 : 1;
+      cursorDot.style.transform = `translate3d(${dotX}px, ${dotY}px, 0) translate(-50%, -50%) scale(${scale})`;
       cursorGlow.style.transform = `translate3d(${glowX}px, ${glowY}px, 0) translate(-50%, -50%)`;
 
       requestAnimationFrame(renderCursor);
@@ -120,13 +122,14 @@ document.addEventListener('DOMContentLoaded', () => {
     renderCursor();
 
     // Scale dot on hovering interactive elements
-    const interactiveElements = document.querySelectorAll('a, button, .portfolio-card, .service-card, .stat-card');
+    const interactiveElements = document.querySelectorAll('a, button, .portfolio-card, .service-card, .stat-card, .circular-badge-wrapper');
     interactiveElements.forEach(el => {
       el.addEventListener('mouseenter', () => {
-        cursorDot.style.transform += ' scale(2.2)';
+        isHovered = true;
         cursorDot.style.backgroundColor = 'var(--primary-light)';
       });
       el.addEventListener('mouseleave', () => {
+        isHovered = false;
         cursorDot.style.backgroundColor = '#ffffff';
       });
     });
@@ -863,18 +866,52 @@ function handleContactSubmit(event) {
   const service = document.getElementById('projectType').value;
   const message = document.getElementById('projectMessage').value.trim();
 
+  const recipientEmail = 'anshulsingh11110@gmail.com';
+  const emailSubject = `Project Inquiry: ${service} from ${name}`;
+  const emailBody = `Hi Arpit & Anshul,\n\nI visited your portfolio and would like to discuss a project:\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone || 'Not provided'}\nService: ${service}\n\nProject Details:\n${message}\n\nSent from Portfolio Contact Form`;
+
+  const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(recipientEmail)}&su=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+  const mailtoUrl = `mailto:${recipientEmail}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+
+  // Function to open direct Gmail compose & mailto fallback
+  const openDirectEmail = () => {
+    const opened = window.open(gmailComposeUrl, '_blank');
+    if (!opened) {
+      window.location.href = mailtoUrl;
+    }
+  };
+
   if (submitBtn) {
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending... ✦';
   }
 
-  if (status) {
-    status.style.color = '#c084fc';
-    status.textContent = 'Sending inquiry to anshulsingh11110@gmail.com...';
+  // 1. If running as local file (file:///), FormSubmit blocks AJAX. Directly open Gmail compose!
+  if (window.location.protocol === 'file:') {
+    if (status) {
+      status.style.color = '#34d399';
+      status.innerHTML = `✓ Opening Gmail to send inquiry to ${recipientEmail}...<br><span style="font-size:0.75rem; color:#9f9cb0;">(Note: Once hosted online on Netlify/Vercel, emails are sent automatically in the background)</span>`;
+    }
+    openDirectEmail();
+    if (form) form.reset();
+    setTimeout(() => {
+      closeContactModal();
+      if (status) status.textContent = '';
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send to Email ✦';
+      }
+    }, 3500);
+    return;
   }
 
-  // Send asynchronously via FormSubmit AJAX API directly to user's Gmail
-  fetch("https://formsubmit.co/ajax/anshulsingh11110@gmail.com", {
+  // 2. If running on a live web server (http / https), send via FormSubmit API
+  if (status) {
+    status.style.color = '#c084fc';
+    status.textContent = `Sending inquiry to ${recipientEmail}...`;
+  }
+
+  fetch(`https://formsubmit.co/ajax/${recipientEmail}`, {
     method: "POST",
     headers: { 
       'Content-Type': 'application/json',
@@ -886,35 +923,50 @@ function handleContactSubmit(event) {
       phone: phone || 'Not provided',
       service: service,
       message: message,
-      _subject: `New Portfolio Inquiry from ${name} - ${service}`
+      _subject: emailSubject
     })
   })
   .then(response => response.json())
   .then(data => {
-    if (status) {
-      status.style.color = '#34d399';
-      status.innerHTML = `✓ Thank you ${name}! Your inquiry has been sent to anshulsingh11110@gmail.com. Arpit will reach out shortly.`;
-    }
-    if (form) form.reset();
-    setTimeout(() => {
-      closeContactModal();
-      if (status) status.textContent = '';
-      if (submitBtn) {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Send to Email ✦';
+    if (data.success === "true" || data.success === true) {
+      if (status) {
+        status.style.color = '#34d399';
+        status.innerHTML = `✓ Thank you ${name}! Your inquiry has been sent to ${recipientEmail}. Arpit will reach out shortly.`;
       }
-    }, 3200);
+      if (form) form.reset();
+      setTimeout(() => {
+        closeContactModal();
+        if (status) status.textContent = '';
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send to Email ✦';
+        }
+      }, 3200);
+    } else {
+      // If activation needed or error
+      if (status) {
+        status.style.color = '#fbbf24';
+        status.innerHTML = `Opening Gmail to complete delivery... (FormSubmit: ${data.message || 'Please activate form'})`;
+      }
+      openDirectEmail();
+      if (form) form.reset();
+      setTimeout(() => {
+        closeContactModal();
+        if (status) status.textContent = '';
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send to Email ✦';
+        }
+      }, 3500);
+    }
   })
   .catch(error => {
-    // Graceful offline / fallback handler
+    // Network error / offline fallback
     if (status) {
       status.style.color = '#34d399';
-      status.innerHTML = `✓ Thank you ${name}! Opening email & WhatsApp for instant delivery...`;
+      status.innerHTML = `✓ Opening Gmail & email app for delivery...`;
     }
-    // Fallback: Trigger mailto & offer WhatsApp
-    const mailtoUrl = `mailto:anshulsingh11110@gmail.com?subject=${encodeURIComponent('Project Inquiry: ' + service + ' from ' + name)}&body=${encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nPhone: ' + phone + '\nService: ' + service + '\n\nDetails:\n' + message)}`;
-    window.location.href = mailtoUrl;
-
+    openDirectEmail();
     if (form) form.reset();
     setTimeout(() => {
       closeContactModal();
@@ -923,7 +975,7 @@ function handleContactSubmit(event) {
         submitBtn.disabled = false;
         submitBtn.textContent = 'Send to Email ✦';
       }
-    }, 2800);
+    }, 3000);
   });
 }
 
