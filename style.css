@@ -2355,40 +2355,175 @@ button {
 }
 
 @media (max-width: 600px) {
+  html, body {
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+
+  .hero-section {
+    padding: 120px 0 50px 0;
+  }
+
   .hero-title {
-    font-size: 2.2rem;
+    font-size: 2.1rem;
+    line-height: 1.2;
+    margin: 14px 0 16px 0;
+  }
+
+  .hero-subtitle {
+    font-size: 0.98rem;
+    margin-bottom: 24px;
+    padding: 0 4px;
+  }
+
+  .hero-card {
+    max-width: 290px;
+    margin: 0 auto;
+    padding: 10px;
+  }
+
+  .circular-badge-wrapper {
+    width: 82px;
+    height: 82px;
+    bottom: -20px;
+    right: -5px;
+  }
+
+  .badge-live-tag {
+    font-size: 0.5rem;
+    padding: 2px 6px;
+    top: -4px;
+    right: 0px;
   }
 
   .services-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .service-card {
+    padding: 24px 20px;
+  }
+
+  /* About section Android optimization */
+  .about-avatar-wrapper {
+    width: 260px;
+    height: 260px;
+    max-width: 75vw;
+    max-height: 75vw;
+    margin: 0 auto;
+  }
+
+  .about-circle-glow {
+    width: 260px;
+    height: 260px;
   }
 
   .about-title {
-    font-size: 2rem;
+    font-size: 1.85rem;
+    line-height: 1.25;
   }
 
   .section-heading {
-    font-size: 2rem;
+    font-size: 1.85rem;
   }
 
-  .circular-badge-wrapper {
-    width: 90px;
-    height: 90px;
-    bottom: -25px;
-    right: -10px;
+  /* Portfolio mobile touch scrolling */
+  .portfolio-filters {
+    max-width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 6px 12px;
+    display: flex;
+    justify-content: flex-start;
   }
 
-  .badge-live-tag {
-    font-size: 0.52rem;
-    padding: 2px 6px;
-    top: -5px;
-    right: 0px;
+  .portfolio-filters::-webkit-scrollbar {
+    display: none;
+  }
+
+  .portfolio-card {
+    padding: 12px;
+  }
+
+  /* Modals on Android devices */
+  .modal-card {
+    width: 94%;
+    max-height: 88vh;
+    overflow-y: auto;
+    padding: 20px 16px;
+    border-radius: 20px;
+    margin: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .project-lightbox-card {
+    width: 95%;
+    padding: 18px 14px;
+  }
+
+  .lightbox-img-wrapper {
+    aspect-ratio: 16 / 10;
+    margin-bottom: 16px;
+  }
+
+  .lightbox-video {
+    max-height: 48vh;
+  }
+
+  .lightbox-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .lightbox-actions .btn {
+    width: 100%;
+  }
+
+  .contact-modal-card {
+    padding: 24px 18px;
   }
 
   .back-to-top {
     bottom: 20px;
-    right: 20px;
+    right: 18px;
     width: 44px;
     height: 44px;
+  }
+}
+
+@media (max-width: 400px) {
+  .hero-title {
+    font-size: 1.85rem;
+  }
+
+  .about-title {
+    font-size: 1.65rem;
+  }
+
+  .section-heading {
+    font-size: 1.65rem;
+  }
+
+  .hero-card {
+    max-width: 260px;
+  }
+
+  .circular-badge-wrapper {
+    width: 74px;
+    height: 74px;
+    bottom: -15px;
+    right: -5px;
+  }
+
+  .about-avatar-wrapper {
+    width: 220px;
+    height: 220px;
   }
 }
