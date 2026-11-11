@@ -99,6 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let dotY = mouseY;
     let glowX = mouseX;
     let glowY = mouseY;
+    let isHovered = false;
 
     window.addEventListener('mousemove', (e) => {
       mouseX = e.clientX;
@@ -112,7 +113,8 @@ document.addEventListener('DOMContentLoaded', () => {
       glowX += (mouseX - glowX) * 0.12;
       glowY += (mouseY - glowY) * 0.12;
 
-      cursorDot.style.transform = `translate3d(${dotX}px, ${dotY}px, 0) translate(-50%, -50%)`;
+      const scale = isHovered ? 2.2 : 1;
+      cursorDot.style.transform = `translate3d(${dotX}px, ${dotY}px, 0) translate(-50%, -50%) scale(${scale})`;
       cursorGlow.style.transform = `translate3d(${glowX}px, ${glowY}px, 0) translate(-50%, -50%)`;
 
       requestAnimationFrame(renderCursor);
@@ -120,13 +122,14 @@ document.addEventListener('DOMContentLoaded', () => {
     renderCursor();
 
     // Scale dot on hovering interactive elements
-    const interactiveElements = document.querySelectorAll('a, button, .portfolio-card, .service-card, .stat-card');
+    const interactiveElements = document.querySelectorAll('a, button, .portfolio-card, .service-card, .stat-card, .circular-badge-wrapper');
     interactiveElements.forEach(el => {
       el.addEventListener('mouseenter', () => {
-        cursorDot.style.transform += ' scale(2.2)';
+        isHovered = true;
         cursorDot.style.backgroundColor = 'var(--primary-light)';
       });
       el.addEventListener('mouseleave', () => {
+        isHovered = false;
         cursorDot.style.backgroundColor = '#ffffff';
       });
     });
