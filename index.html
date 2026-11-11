@@ -356,12 +356,13 @@
         <!-- Portfolio Cards Grid -->
         <div class="portfolio-grid" id="portfolioGrid">
           
-          <!-- Card 1: Gaming Edit -->
-          <div class="portfolio-card spotlight-card tilt-card reveal-fade-up" data-category="viral" style="--delay: 0.1s;" onclick="openProjectModal('Competitive Gameplay Edits', 'GAMMING EDIT', 'assets/portfolio-gaming.png', 'High-energy cinematic gameplay edit featuring seamless beat synchronization, motion camera zooms, 3D typography, and custom sound design designed to maximize viewer retention.')">
+          <!-- Card 1: Gaming Edit (Featured Video) -->
+          <div class="portfolio-card spotlight-card tilt-card reveal-fade-up" data-category="viral" style="--delay: 0.1s;" onclick="openProjectModal('Competitive Gameplay Edits', 'GAMMING EDIT', 'assets/portfolio-gaming.png', 'High-energy cinematic gameplay edit featuring seamless beat synchronization, motion camera zooms, 3D typography, and custom sound design designed to maximize viewer retention.', 'assets/project-video.mp4')">
             <div class="card-thumb-wrapper">
               <img src="assets/portfolio-gaming.png" alt="Competitive Gameplay Edits" class="card-thumb">
+              <div class="card-badge-video">▶ VIDEO (0:26)</div>
               <div class="card-overlay">
-                <span class="preview-badge">View Project ↗</span>
+                <span class="preview-badge">▶ Watch Video ↗</span>
               </div>
             </div>
             <div class="card-info">
@@ -724,9 +725,13 @@
     <div class="modal-card project-lightbox-card">
       <button class="modal-close" onclick="closeProjectModal()" aria-label="Close modal">&times;</button>
       
-      <div class="lightbox-img-wrapper">
+      <div class="lightbox-img-wrapper" id="lightboxMediaWrapper">
+        <video id="modalVideo" class="lightbox-video" controls playsinline preload="auto">
+          <source src="assets/project-video.mp4" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
         <img id="modalImg" src="" alt="Project Showcase" class="lightbox-img">
-        <div class="lightbox-play-overlay">
+        <div class="lightbox-play-overlay" id="lightboxPlayOverlay" onclick="startModalVideo()" title="Click to play video">
           <div class="play-pulse-circle">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
               <polygon points="5 3 19 12 5 21 5 3"></polygon>
@@ -742,6 +747,7 @@
 
         <div class="lightbox-actions">
           <button class="btn btn-pill-white magnetic-btn" onclick="closeProjectModal(); openContactModal();">Hire for Similar Project</button>
+          <button class="btn btn-pill-outline magnetic-btn" id="modalToggleVideoBtn" onclick="toggleModalMedia()">▶ Watch Video</button>
         </div>
       </div>
     </div>
