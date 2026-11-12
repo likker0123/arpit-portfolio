@@ -1012,42 +1012,40 @@ button {
 }
 
 .about-circle-glow {
-  position: absolute;
-  width: 440px;
-  height: 440px;
-  background: radial-gradient(circle, rgba(168, 85, 247, 0.45) 0%, rgba(99, 102, 241, 0.12) 60%, transparent 80%);
-  border-radius: 50%;
-  filter: blur(55px);
-  z-index: 0;
-  animation: pulseBreathing 10s infinite alternate;
+  display: none !important;
 }
 
 .about-avatar-wrapper {
   position: relative;
   z-index: 1;
-  width: 360px;
-  height: 360px;
-  border-radius: 50%;
-  padding: 0;
-  background: none;
-  border: none;
-  outline: none;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-  transition: transform var(--transition-spring), box-shadow var(--transition-normal);
+  width: 100%;
+  max-width: 380px;
+  border-radius: 28px;
+  background: linear-gradient(145deg, rgba(35, 27, 54, 0.75) 0%, rgba(18, 14, 30, 0.95) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 14px;
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.7), 0 0 35px rgba(139, 92, 246, 0.22);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
 }
 
 .about-avatar-wrapper:hover {
-  transform: scale(1.05) rotate(2deg);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 35px 80px -15px rgba(0, 0, 0, 0.8), 0 0 50px rgba(168, 85, 247, 0.35);
+  border-color: rgba(168, 85, 247, 0.4);
 }
 
 .about-avatar-img {
   width: 100%;
-  height: 100%;
-  border-radius: 50%;
+  height: 420px;
+  border-radius: 20px;
   object-fit: cover;
-  object-position: center 22%;
+  object-position: center 10%;
   display: block;
+  transition: transform var(--transition-slow);
+}
+
+.about-avatar-wrapper:hover .about-avatar-img {
+  transform: scale(1.02);
 }
 
 .about-content {
@@ -2409,18 +2407,20 @@ button {
     padding: 24px 20px;
   }
 
-  /* About section Android optimization */
+  /* About section mobile card optimization */
   .about-avatar-wrapper {
-    width: 260px;
-    height: 260px;
-    max-width: 75vw;
-    max-height: 75vw;
+    max-width: 320px;
+    width: 100%;
     margin: 0 auto;
+    padding: 10px;
+  }
+
+  .about-avatar-img {
+    height: 340px;
   }
 
   .about-circle-glow {
-    width: 260px;
-    height: 260px;
+    display: none !important;
   }
 
   .about-title {
@@ -2523,7 +2523,10 @@ button {
   }
 
   .about-avatar-wrapper {
-    width: 220px;
-    height: 220px;
+    max-width: 260px;
+  }
+
+  .about-avatar-img {
+    height: 280px;
   }
 }
