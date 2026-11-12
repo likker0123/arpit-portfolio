@@ -807,120 +807,7 @@ button {
   transform: scale(1.02);
 }
 
-/* Spinning Circular Badge with Live Image */
-.circular-badge-wrapper {
-  position: absolute;
-  bottom: -40px;
-  right: -25px;
-  width: 124px;
-  height: 124px;
-  z-index: 3;
-  cursor: pointer;
-  transition: transform var(--transition-spring);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  user-select: none;
-}
 
-.circular-badge-wrapper:hover {
-  transform: scale(1.15) translateY(-4px);
-}
-
-.circular-badge-glow {
-  position: absolute;
-  inset: -6px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(168, 85, 247, 0.75) 0%, rgba(6, 182, 212, 0.45) 55%, transparent 75%);
-  filter: blur(14px);
-  z-index: 0;
-  animation: pulseBreathing 4s infinite alternate;
-}
-
-/* Spinning outer neon conic ring */
-.circular-badge-spin-ring {
-  position: absolute;
-  inset: -3px;
-  border-radius: 50%;
-  background: conic-gradient(from 0deg, #a855f7, #06b6d4, #ec4899, #8b5cf6, #06b6d4, #a855f7);
-  animation: spinSlow 8s linear infinite;
-  z-index: 1;
-  box-shadow: 0 0 22px rgba(168, 85, 247, 0.65);
-  padding: 3px;
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-}
-
-.circular-badge-wrapper:hover .circular-badge-spin-ring {
-  animation-duration: 4s;
-  box-shadow: 0 0 30px rgba(6, 182, 212, 0.9);
-}
-
-/* Inner circular container holding the live image */
-.circular-badge-inner {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  overflow: hidden;
-  background: #0d0914;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7), inset 0 0 15px rgba(0, 0, 0, 0.5);
-  border: 2px solid rgba(255, 255, 255, 0.2);
-}
-
-.circular-badge-img {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-  transition: transform 0.4s ease, filter 0.3s ease;
-  display: block;
-}
-
-.circular-badge-wrapper:hover .circular-badge-img {
-  transform: scale(1.08);
-  filter: brightness(1.08);
-}
-
-/* Pulsing LIVE status indicator */
-.badge-live-tag {
-  position: absolute;
-  top: -4px;
-  right: 2px;
-  z-index: 5;
-  background: rgba(13, 9, 20, 0.95);
-  border: 1px solid rgba(34, 197, 94, 0.6);
-  border-radius: 20px;
-  padding: 3px 8px;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 0.62rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  color: #4ade80;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6), 0 0 10px rgba(34, 197, 94, 0.35);
-  backdrop-filter: blur(8px);
-  pointer-events: none;
-}
-
-.badge-live-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #22c55e;
-  box-shadow: 0 0 8px #22c55e;
-  animation: pulseDot 1.4s infinite;
-}
-
-@keyframes spinSlow {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
 
 /* ==========================================================
    TICKER / MARQUEE BANNER
@@ -2612,20 +2499,6 @@ button {
     padding: 10px;
   }
 
-  .circular-badge-wrapper {
-    width: 82px;
-    height: 82px;
-    bottom: -20px;
-    right: -5px;
-  }
-
-  .badge-live-tag {
-    font-size: 0.5rem;
-    padding: 2px 6px;
-    top: -4px;
-    right: 0px;
-  }
-
   .services-grid {
     grid-template-columns: 1fr;
     gap: 16px;
@@ -2741,13 +2614,6 @@ button {
 
   .hero-card {
     max-width: 260px;
-  }
-
-  .circular-badge-wrapper {
-    width: 74px;
-    height: 74px;
-    bottom: -15px;
-    right: -5px;
   }
 
   .about-avatar-wrapper {
