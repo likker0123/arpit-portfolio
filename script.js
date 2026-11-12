@@ -368,43 +368,125 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ====================================================
-     11. TESTIMONIALS SLIDER & DOTS INTERACTION
+     11. TESTIMONIALS SLIDER & CONTROLS INTERACTION
   ==================================================== */
-  const testimonialDots = document.querySelectorAll('.t-dot');
+  const testimonialTrack = document.getElementById('testimonialTrack');
   const testimonialCards = document.querySelectorAll('.testimonial-card');
+  const testimonialDots = document.querySelectorAll('.t-dot');
+  const prevTestimonialBtn = document.getElementById('prevTestimonial');
+  const nextTestimonialBtn = document.getElementById('nextTestimonial');
+  const testimonialsContainer = document.querySelector('.testimonials-slider-container');
   let currentSlide = 0;
+  let testimonialInterval = null;
 
-  function switchTestimonial(index) {
-    testimonialDots.forEach(d => d.classList.remove('active'));
-    testimonialCards.forEach(c => c.classList.remove('active'));
+  function updateTestimonials(index, smooth = true) {
+    if (!testimonialTrack || testimonialCards.length === 0) return;
+    const viewport = document.getElementById('testimonialViewport') || testimonialTrack.parentElement;
+    const totalCards = testimonialCards.length;
 
-    currentSlide = index;
-    if (testimonialDots[currentSlide]) testimonialDots[currentSlide].classList.add('active');
-    if (testimonialCards[currentSlide]) testimonialCards[currentSlide].classList.add('active');
+    if (index < 0) {
+      currentSlide = totalCards - 1;
+    } else if (index >= totalCards) {
+      currentSlide = 0;
+    } else {
+      currentSlide = index;
+    }
+
+    const card = testimonialCards[0];
+    const cardRect = card.getBoundingClientRect();
+    const style = window.getComputedStyle(testimonialTrack);
+    const gap = parseFloat(style.gap) || 28;
+    const step = cardRect.width + gap;
+    const maxOffset = Math.max(0, testimonialTrack.scrollWidth - viewport.clientWidth);
+    const targetOffset = Math.min(currentSlide * step, maxOffset);
+
+    testimonialTrack.style.transition = smooth ? 'transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1)' : 'none';
+    testimonialTrack.style.transform = `translateX(-${targetOffset}px)`;
+
+    // Update dots
+    testimonialDots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === currentSlide);
+    });
+
+    // Update card active classes
+    testimonialCards.forEach((c, i) => {
+      c.classList.toggle('active', i === currentSlide);
+    });
   }
 
+  function startTestimonialAutoplay() {
+    if (testimonialInterval) clearInterval(testimonialInterval);
+    testimonialInterval = setInterval(() => {
+      const next = (currentSlide + 1) % testimonialCards.length;
+      updateTestimonials(next);
+    }, 5500);
+  }
+
+  function stopTestimonialAutoplay() {
+    if (testimonialInterval) {
+      clearInterval(testimonialInterval);
+      testimonialInterval = null;
+    }
+  }
+
+  // Dot clicks
   testimonialDots.forEach((dot, index) => {
     dot.addEventListener('click', () => {
-      switchTestimonial(index);
+      updateTestimonials(index);
+      startTestimonialAutoplay();
     });
   });
 
-  // Auto-cycle testimonials every 6 seconds
-  let testimonialInterval = setInterval(() => {
-    let nextSlide = (currentSlide + 1) % testimonialDots.length;
-    switchTestimonial(nextSlide);
-  }, 6000);
-
-  const testimonialsContainer = document.querySelector('.testimonials-slider-container');
-  if (testimonialsContainer) {
-    testimonialsContainer.addEventListener('mouseenter', () => clearInterval(testimonialInterval));
-    testimonialsContainer.addEventListener('mouseleave', () => {
-      testimonialInterval = setInterval(() => {
-        let nextSlide = (currentSlide + 1) % testimonialDots.length;
-        switchTestimonial(nextSlide);
-      }, 6000);
+  // Prev / Next button clicks
+  if (prevTestimonialBtn) {
+    prevTestimonialBtn.addEventListener('click', () => {
+      updateTestimonials(currentSlide - 1);
+      startTestimonialAutoplay();
     });
   }
+
+  if (nextTestimonialBtn) {
+    nextTestimonialBtn.addEventListener('click', () => {
+      updateTestimonials(currentSlide + 1);
+      startTestimonialAutoplay();
+    });
+  }
+
+  // Hover pause & mobile swipe gestures
+  if (testimonialsContainer) {
+    testimonialsContainer.addEventListener('mouseenter', stopTestimonialAutoplay);
+    testimonialsContainer.addEventListener('mouseleave', startTestimonialAutoplay);
+
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    testimonialsContainer.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      stopTestimonialAutoplay();
+    }, { passive: true });
+
+    testimonialsContainer.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      const diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 45) {
+        if (diff > 0) {
+          updateTestimonials(currentSlide + 1);
+        } else {
+          updateTestimonials(currentSlide - 1);
+        }
+      }
+      startTestimonialAutoplay();
+    }, { passive: true });
+  }
+
+  // Responsive window resize
+  window.addEventListener('resize', () => {
+    updateTestimonials(currentSlide, false);
+  });
+
+  // Initialize
+  updateTestimonials(0, false);
+  startTestimonialAutoplay();
 
   /* ====================================================
      12. ESC KEY LISTENER & BACKDROP CLICK FOR MODALS

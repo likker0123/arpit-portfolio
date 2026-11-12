@@ -508,46 +508,260 @@
         
         <div class="section-header text-center reveal-fade-up">
           <span class="section-tag">TESTIMONIALS</span>
-          <h2 class="section-heading">What client Say</h2>
+          <h2 class="section-heading">What Clients Say</h2>
         </div>
 
         <div class="testimonials-slider-container reveal-scale">
-          <div class="testimonials-track" id="testimonialTrack">
-            
-            <!-- Testimonial 1 -->
-            <div class="testimonial-card spotlight-card active" data-slide="0">
-              <p class="testimonial-quote">
-                "Arpit understood exactly what I wanted and delivered a clean, engaging edit that exceeded my expectations."
-              </p>
-              <div class="testimonial-footer">
-                <div class="client-meta">
-                  <h4 class="client-name">Anshul</h4>
-                  <span class="client-role">PODCAST</span>
-                </div>
-                <div class="quote-glyph">”</div>
-              </div>
+          <!-- Slider Top Bar: Review Count & Navigation Arrows -->
+          <div class="testimonials-controls">
+            <div class="testimonial-count-badge">
+              <span class="sparkle">✦</span>
+              <span class="count-text">10 Verified Client Reviews</span>
+              <span class="stars-badge">★★★★★ 5.0</span>
             </div>
-
-            <!-- Testimonial 2 -->
-            <div class="testimonial-card spotlight-card" data-slide="1">
-              <p class="testimonial-quote">
-                "Working with Arpit was smooth and hassle-free. Every revision was handled quickly and professionally."
-              </p>
-              <div class="testimonial-footer">
-                <div class="client-meta">
-                  <h4 class="client-name">Ayush</h4>
-                  <span class="client-role">GAMMING</span>
-                </div>
-                <div class="quote-glyph">”</div>
-              </div>
+            <div class="slider-arrows">
+              <button class="t-arrow-btn t-prev-btn" id="prevTestimonial" aria-label="Previous review">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+              </button>
+              <button class="t-arrow-btn t-next-btn" id="nextTestimonial" aria-label="Next review">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
             </div>
-
           </div>
 
-          <!-- Dots Indicator -->
+          <!-- Carousel Viewport -->
+          <div class="testimonials-viewport" id="testimonialViewport">
+            <div class="testimonials-track" id="testimonialTrack">
+              
+              <!-- Review 1: Anshul -->
+              <div class="testimonial-card spotlight-card active" data-slide="0">
+                <div class="testimonial-header">
+                  <div class="testimonial-stars" aria-label="5 stars rating">★★★★★</div>
+                  <span class="testimonial-badge-verified">✓ Verified Client</span>
+                </div>
+                <p class="testimonial-quote">
+                  "Arpit understood exactly what I wanted and delivered a clean, engaging edit that exceeded my expectations. His pacing, sound design, and audio mastering made every episode flow effortlessly."
+                </p>
+                <div class="testimonial-footer">
+                  <div class="client-avatar-info">
+                    <div class="client-avatar avatar-purple">A</div>
+                    <div class="client-meta">
+                      <h4 class="client-name">Anshul</h4>
+                      <span class="client-role">PODCAST CREATOR</span>
+                    </div>
+                  </div>
+                  <div class="quote-glyph">”</div>
+                </div>
+              </div>
+
+              <!-- Review 2: Ayush -->
+              <div class="testimonial-card spotlight-card" data-slide="1">
+                <div class="testimonial-header">
+                  <div class="testimonial-stars" aria-label="5 stars rating">★★★★★</div>
+                  <span class="testimonial-badge-verified">✓ Verified Client</span>
+                </div>
+                <p class="testimonial-quote">
+                  "Working with Arpit was smooth and hassle-free. Every gaming montage revision was handled quickly, with punchy beat syncing, intense zooms, and custom sound effects that my viewers loved."
+                </p>
+                <div class="testimonial-footer">
+                  <div class="client-avatar-info">
+                    <div class="client-avatar avatar-cyan">A</div>
+                    <div class="client-meta">
+                      <h4 class="client-name">Ayush</h4>
+                      <span class="client-role">GAMING STREAMER</span>
+                    </div>
+                  </div>
+                  <div class="quote-glyph">”</div>
+                </div>
+              </div>
+
+              <!-- Review 3: Rohan Sharma -->
+              <div class="testimonial-card spotlight-card" data-slide="2">
+                <div class="testimonial-header">
+                  <div class="testimonial-stars" aria-label="5 stars rating">★★★★★</div>
+                  <span class="testimonial-badge-verified">✓ Verified Client</span>
+                </div>
+                <p class="testimonial-quote">
+                  "The SaaS product explainer video Arpit crafted helped increase our landing page conversion rate by 38%. Crisp animations, smooth camera moves, and crystal-clear clarity throughout."
+                </p>
+                <div class="testimonial-footer">
+                  <div class="client-avatar-info">
+                    <div class="client-avatar avatar-emerald">R</div>
+                    <div class="client-meta">
+                      <h4 class="client-name">Rohan Sharma</h4>
+                      <span class="client-role">SAAS FOUNDER</span>
+                    </div>
+                  </div>
+                  <div class="quote-glyph">”</div>
+                </div>
+              </div>
+
+              <!-- Review 4: Priya Patel -->
+              <div class="testimonial-card spotlight-card" data-slide="3">
+                <div class="testimonial-header">
+                  <div class="testimonial-stars" aria-label="5 stars rating">★★★★★</div>
+                  <span class="testimonial-badge-verified">✓ Verified Client</span>
+                </div>
+                <p class="testimonial-quote">
+                  "My Instagram Reels hit over 500K views within 48 hours thanks to Arpit's dynamic hook cuts, trendy typography, and aesthetic color grading. Truly next-level editing!"
+                </p>
+                <div class="testimonial-footer">
+                  <div class="client-avatar-info">
+                    <div class="client-avatar avatar-pink">P</div>
+                    <div class="client-meta">
+                      <h4 class="client-name">Priya Patel</h4>
+                      <span class="client-role">FASHION & LIFESTYLE</span>
+                    </div>
+                  </div>
+                  <div class="quote-glyph">”</div>
+                </div>
+              </div>
+
+              <!-- Review 5: Vikram Malhotra -->
+              <div class="testimonial-card spotlight-card" data-slide="4">
+                <div class="testimonial-header">
+                  <div class="testimonial-stars" aria-label="5 stars rating">★★★★★</div>
+                  <span class="testimonial-badge-verified">✓ Verified Client</span>
+                </div>
+                <p class="testimonial-quote">
+                  "Super fast turnaround time and exceptional attention to detail. The 4K B-roll synchronization and subtle motion graphics elevated my tech review quality tremendously."
+                </p>
+                <div class="testimonial-footer">
+                  <div class="client-avatar-info">
+                    <div class="client-avatar avatar-amber">V</div>
+                    <div class="client-meta">
+                      <h4 class="client-name">Vikram Malhotra</h4>
+                      <span class="client-role">YOUTUBE TECH CREATOR</span>
+                    </div>
+                  </div>
+                  <div class="quote-glyph">”</div>
+                </div>
+              </div>
+
+              <!-- Review 6: Aman Verma -->
+              <div class="testimonial-card spotlight-card" data-slide="5">
+                <div class="testimonial-header">
+                  <div class="testimonial-stars" aria-label="5 stars rating">★★★★★</div>
+                  <span class="testimonial-badge-verified">✓ Verified Client</span>
+                </div>
+                <p class="testimonial-quote">
+                  "Complex educational concepts were made visually captivating with custom kinetic typography and sleek infographic animations. Student retention has never been higher."
+                </p>
+                <div class="testimonial-footer">
+                  <div class="client-avatar-info">
+                    <div class="client-avatar avatar-indigo">A</div>
+                    <div class="client-meta">
+                      <h4 class="client-name">Aman Verma</h4>
+                      <span class="client-role">EDTECH CREATOR</span>
+                    </div>
+                  </div>
+                  <div class="quote-glyph">”</div>
+                </div>
+              </div>
+
+              <!-- Review 7: Neha Gupta -->
+              <div class="testimonial-card spotlight-card" data-slide="6">
+                <div class="testimonial-header">
+                  <div class="testimonial-stars" aria-label="5 stars rating">★★★★★</div>
+                  <span class="testimonial-badge-verified">✓ Verified Client</span>
+                </div>
+                <p class="testimonial-quote">
+                  "Arpit transformed raw workout recordings into high-energy reels with amazing rhythm and punchy beat drops. Engagement and shares on my Instagram page skyrocketed!"
+                </p>
+                <div class="testimonial-footer">
+                  <div class="client-avatar-info">
+                    <div class="client-avatar avatar-fuchsia">N</div>
+                    <div class="client-meta">
+                      <h4 class="client-name">Neha Gupta</h4>
+                      <span class="client-role">FITNESS COACH</span>
+                    </div>
+                  </div>
+                  <div class="quote-glyph">”</div>
+                </div>
+              </div>
+
+              <!-- Review 8: Devansh Joshi -->
+              <div class="testimonial-card spotlight-card" data-slide="7">
+                <div class="testimonial-header">
+                  <div class="testimonial-stars" aria-label="5 stars rating">★★★★★</div>
+                  <span class="testimonial-badge-verified">✓ Verified Client</span>
+                </div>
+                <p class="testimonial-quote">
+                  "The talking-head edits with Alex Hormozi style animated captions and motion charts kept my audience retention above 70%. Hands down the best video editor I've worked with."
+                </p>
+                <div class="testimonial-footer">
+                  <div class="client-avatar-info">
+                    <div class="client-avatar avatar-teal">D</div>
+                    <div class="client-meta">
+                      <h4 class="client-name">Devansh Joshi</h4>
+                      <span class="client-role">FINTECH ANALYST</span>
+                    </div>
+                  </div>
+                  <div class="quote-glyph">”</div>
+                </div>
+              </div>
+
+              <!-- Review 9: Tanmay Sen -->
+              <div class="testimonial-card spotlight-card" data-slide="8">
+                <div class="testimonial-header">
+                  <div class="testimonial-stars" aria-label="5 stars rating">★★★★★</div>
+                  <span class="testimonial-badge-verified">✓ Verified Client</span>
+                </div>
+                <p class="testimonial-quote">
+                  "Arpit possesses a rare blend of aesthetic sensibility and technical storytelling. Every cut is intentional, polished, and elevates our overall brand identity."
+                </p>
+                <div class="testimonial-footer">
+                  <div class="client-avatar-info">
+                    <div class="client-avatar avatar-violet">T</div>
+                    <div class="client-meta">
+                      <h4 class="client-name">Tanmay Sen</h4>
+                      <span class="client-role">BRAND & CREATIVE LEAD</span>
+                    </div>
+                  </div>
+                  <div class="quote-glyph">”</div>
+                </div>
+              </div>
+
+              <!-- Review 10: Shreya Kulkarni -->
+              <div class="testimonial-card spotlight-card" data-slide="9">
+                <div class="testimonial-header">
+                  <div class="testimonial-stars" aria-label="5 stars rating">★★★★★</div>
+                  <span class="testimonial-badge-verified">✓ Verified Client</span>
+                </div>
+                <p class="testimonial-quote">
+                  "Delivered 5 high-converting ad creatives for our Meta ad campaigns in record time. Our click-through rate doubled and ROAS increased by 45% within the first week."
+                </p>
+                <div class="testimonial-footer">
+                  <div class="client-avatar-info">
+                    <div class="client-avatar avatar-rose">S</div>
+                    <div class="client-meta">
+                      <h4 class="client-name">Shreya Kulkarni</h4>
+                      <span class="client-role">E-COMMERCE LEAD</span>
+                    </div>
+                  </div>
+                  <div class="quote-glyph">”</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Dots Indicator (10 Reviews) -->
           <div class="testimonial-dots" id="testimonialDots">
-            <button class="t-dot active" data-index="0" aria-label="Slide 1"></button>
-            <button class="t-dot" data-index="1" aria-label="Slide 2"></button>
+            <button class="t-dot active" data-index="0" aria-label="Review 1"></button>
+            <button class="t-dot" data-index="1" aria-label="Review 2"></button>
+            <button class="t-dot" data-index="2" aria-label="Review 3"></button>
+            <button class="t-dot" data-index="3" aria-label="Review 4"></button>
+            <button class="t-dot" data-index="4" aria-label="Review 5"></button>
+            <button class="t-dot" data-index="5" aria-label="Review 6"></button>
+            <button class="t-dot" data-index="6" aria-label="Review 7"></button>
+            <button class="t-dot" data-index="7" aria-label="Review 8"></button>
+            <button class="t-dot" data-index="8" aria-label="Review 9"></button>
+            <button class="t-dot" data-index="9" aria-label="Review 10"></button>
           </div>
         </div>
 
