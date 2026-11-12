@@ -807,120 +807,7 @@ button {
   transform: scale(1.02);
 }
 
-/* Spinning Circular Badge with Live Image */
-.circular-badge-wrapper {
-  position: absolute;
-  bottom: -40px;
-  right: -25px;
-  width: 124px;
-  height: 124px;
-  z-index: 3;
-  cursor: pointer;
-  transition: transform var(--transition-spring);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  user-select: none;
-}
 
-.circular-badge-wrapper:hover {
-  transform: scale(1.15) translateY(-4px);
-}
-
-.circular-badge-glow {
-  position: absolute;
-  inset: -6px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(168, 85, 247, 0.75) 0%, rgba(6, 182, 212, 0.45) 55%, transparent 75%);
-  filter: blur(14px);
-  z-index: 0;
-  animation: pulseBreathing 4s infinite alternate;
-}
-
-/* Spinning outer neon conic ring */
-.circular-badge-spin-ring {
-  position: absolute;
-  inset: -3px;
-  border-radius: 50%;
-  background: conic-gradient(from 0deg, #a855f7, #06b6d4, #ec4899, #8b5cf6, #06b6d4, #a855f7);
-  animation: spinSlow 8s linear infinite;
-  z-index: 1;
-  box-shadow: 0 0 22px rgba(168, 85, 247, 0.65);
-  padding: 3px;
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-}
-
-.circular-badge-wrapper:hover .circular-badge-spin-ring {
-  animation-duration: 4s;
-  box-shadow: 0 0 30px rgba(6, 182, 212, 0.9);
-}
-
-/* Inner circular container holding the live image */
-.circular-badge-inner {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  overflow: hidden;
-  background: #0d0914;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7), inset 0 0 15px rgba(0, 0, 0, 0.5);
-  border: 2px solid rgba(255, 255, 255, 0.2);
-}
-
-.circular-badge-img {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-  transition: transform 0.4s ease, filter 0.3s ease;
-  display: block;
-}
-
-.circular-badge-wrapper:hover .circular-badge-img {
-  transform: scale(1.08);
-  filter: brightness(1.08);
-}
-
-/* Pulsing LIVE status indicator */
-.badge-live-tag {
-  position: absolute;
-  top: -4px;
-  right: 2px;
-  z-index: 5;
-  background: rgba(13, 9, 20, 0.95);
-  border: 1px solid rgba(34, 197, 94, 0.6);
-  border-radius: 20px;
-  padding: 3px 8px;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 0.62rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  color: #4ade80;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6), 0 0 10px rgba(34, 197, 94, 0.35);
-  backdrop-filter: blur(8px);
-  pointer-events: none;
-}
-
-.badge-live-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #22c55e;
-  box-shadow: 0 0 8px #22c55e;
-  animation: pulseDot 1.4s infinite;
-}
-
-@keyframes spinSlow {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
 
 /* ==========================================================
    TICKER / MARQUEE BANNER
@@ -1012,42 +899,40 @@ button {
 }
 
 .about-circle-glow {
-  position: absolute;
-  width: 440px;
-  height: 440px;
-  background: radial-gradient(circle, rgba(168, 85, 247, 0.45) 0%, rgba(99, 102, 241, 0.12) 60%, transparent 80%);
-  border-radius: 50%;
-  filter: blur(55px);
-  z-index: 0;
-  animation: pulseBreathing 10s infinite alternate;
+  display: none !important;
 }
 
 .about-avatar-wrapper {
   position: relative;
   z-index: 1;
-  width: 360px;
-  height: 360px;
-  border-radius: 50%;
-  padding: 0;
-  background: none;
-  border: none;
-  outline: none;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-  transition: transform var(--transition-spring), box-shadow var(--transition-normal);
+  width: 100%;
+  max-width: 380px;
+  border-radius: 28px;
+  background: linear-gradient(145deg, rgba(35, 27, 54, 0.75) 0%, rgba(18, 14, 30, 0.95) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 14px;
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.7), 0 0 35px rgba(139, 92, 246, 0.22);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
 }
 
 .about-avatar-wrapper:hover {
-  transform: scale(1.05) rotate(2deg);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 35px 80px -15px rgba(0, 0, 0, 0.8), 0 0 50px rgba(168, 85, 247, 0.35);
+  border-color: rgba(168, 85, 247, 0.4);
 }
 
 .about-avatar-img {
   width: 100%;
-  height: 100%;
-  border-radius: 50%;
+  height: 420px;
+  border-radius: 20px;
   object-fit: cover;
-  object-position: center 22%;
+  object-position: center 10%;
   display: block;
+  transition: transform var(--transition-slow);
+}
+
+.about-avatar-wrapper:hover .about-avatar-img {
+  transform: scale(1.02);
 }
 
 .about-content {
@@ -1135,15 +1020,18 @@ button {
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   margin-top: 56px;
+  align-items: stretch;
 }
 
 .service-card {
-  padding: 40px 32px;
+  padding: 36px 28px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   backdrop-filter: blur(16px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .service-card::after {
@@ -1159,7 +1047,7 @@ button {
 }
 
 .service-card:hover {
-  transform: translateY(-10px) scale(1.02);
+  transform: translateY(-8px) scale(1.02);
   border-color: var(--border-accent);
   box-shadow: 0 20px 50px rgba(139, 92, 246, 0.25);
 }
@@ -1169,15 +1057,15 @@ button {
 }
 
 .service-icon-wrapper {
-  margin-bottom: 24px;
+  margin-bottom: 22px;
 }
 
 .service-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 60px;
-  height: 60px;
+  width: 58px;
+  height: 58px;
   border-radius: var(--radius-md);
   background: rgba(168, 85, 247, 0.12);
   border: 1px solid rgba(168, 85, 247, 0.3);
@@ -1190,13 +1078,14 @@ button {
 }
 
 .service-title {
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: var(--text-white);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   margin-bottom: 12px;
   text-transform: uppercase;
   transition: color var(--transition-fast);
+  line-height: 1.35;
 }
 
 .service-card:hover .service-title {
@@ -1204,7 +1093,7 @@ button {
 }
 
 .service-desc {
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   color: var(--text-muted);
   line-height: 1.6;
 }
@@ -1418,36 +1307,147 @@ button {
 }
 
 .testimonials-slider-container {
-  max-width: 1000px;
+  max-width: 1040px;
   margin: 50px auto 0 auto;
 }
 
+/* Slider Controls Bar */
+.testimonials-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding: 0 4px;
+}
+
+.testimonial-count-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 8px 18px;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-white);
+}
+
+.testimonial-count-badge .sparkle {
+  color: var(--primary-accent);
+}
+
+.testimonial-count-badge .stars-badge {
+  color: #fbbf24;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  background: rgba(251, 191, 36, 0.12);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(251, 191, 36, 0.28);
+  font-weight: 700;
+}
+
+.slider-arrows {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.t-arrow-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text-white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.t-arrow-btn:hover {
+  background: var(--primary-accent);
+  border-color: var(--primary-light);
+  transform: translateY(-2px) scale(1.08);
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.45);
+}
+
+.t-arrow-btn:active {
+  transform: scale(0.95);
+}
+
+/* Slider Viewport & Track */
+.testimonials-viewport {
+  overflow: hidden;
+  width: 100%;
+  border-radius: var(--radius-lg);
+  padding: 10px 4px 18px 4px;
+  margin: -10px -4px -18px -4px;
+}
+
 .testimonials-track {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
   gap: 28px;
+  transition: transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: transform;
 }
 
 .testimonial-card {
-  padding: 38px 34px;
+  flex: 0 0 calc(50% - 14px);
+  min-width: calc(50% - 14px);
+  box-sizing: border-box;
+  padding: 36px 32px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   backdrop-filter: blur(16px);
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.025);
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .testimonial-card:hover {
-  transform: translateY(-8px) scale(1.02);
+  transform: translateY(-6px);
   border-color: var(--border-accent);
   box-shadow: 0 20px 50px rgba(139, 92, 246, 0.25);
 }
 
-.testimonial-quote {
+.testimonial-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.testimonial-stars {
+  color: #fbbf24;
   font-size: 1.05rem;
+  letter-spacing: 2px;
+  text-shadow: 0 0 8px rgba(251, 191, 36, 0.4);
+}
+
+.testimonial-badge-verified {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #34d399;
+  background: rgba(52, 211, 153, 0.1);
+  border: 1px solid rgba(52, 211, 153, 0.25);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.02em;
+}
+
+.testimonial-quote {
+  font-size: 1.02rem;
   line-height: 1.7;
   color: #dedce6;
-  margin-bottom: 28px;
+  margin-bottom: 26px;
+  flex-grow: 1;
 }
 
 .testimonial-footer {
@@ -1458,15 +1458,46 @@ button {
   padding-top: 20px;
 }
 
+.client-avatar-info {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.client-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 14px rgba(168, 85, 247, 0.25);
+  flex-shrink: 0;
+}
+
+.avatar-purple  { background: linear-gradient(135deg, rgba(168, 85, 247, 0.45), rgba(139, 92, 246, 0.25)); border: 1.5px solid #a855f7; }
+.avatar-cyan    { background: linear-gradient(135deg, rgba(6, 182, 212, 0.45), rgba(59, 130, 246, 0.25)); border: 1.5px solid #06b6d4; }
+.avatar-emerald { background: linear-gradient(135deg, rgba(16, 185, 129, 0.45), rgba(5, 150, 105, 0.25)); border: 1.5px solid #10b981; }
+.avatar-pink    { background: linear-gradient(135deg, rgba(236, 72, 153, 0.45), rgba(219, 39, 119, 0.25)); border: 1.5px solid #ec4899; }
+.avatar-amber   { background: linear-gradient(135deg, rgba(245, 158, 11, 0.45), rgba(217, 119, 6, 0.25)); border: 1.5px solid #f59e0b; }
+.avatar-indigo  { background: linear-gradient(135deg, rgba(99, 102, 241, 0.45), rgba(79, 70, 229, 0.25)); border: 1.5px solid #6366f1; }
+.avatar-fuchsia { background: linear-gradient(135deg, rgba(217, 70, 239, 0.45), rgba(168, 85, 247, 0.25)); border: 1.5px solid #d946ef; }
+.avatar-teal    { background: linear-gradient(135deg, rgba(20, 184, 166, 0.45), rgba(14, 165, 233, 0.25)); border: 1.5px solid #14b8a6; }
+.avatar-violet  { background: linear-gradient(135deg, rgba(139, 92, 246, 0.45), rgba(99, 102, 241, 0.25)); border: 1.5px solid #8b5cf6; }
+.avatar-rose    { background: linear-gradient(135deg, rgba(244, 63, 94, 0.45), rgba(225, 29, 72, 0.25)); border: 1.5px solid #f43f5e; }
+
 .client-name {
-  font-size: 1.15rem;
+  font-size: 1.12rem;
   font-weight: 700;
   color: var(--text-white);
   margin-bottom: 2px;
 }
 
 .client-role {
-  font-size: 0.78rem;
+  font-size: 0.74rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   color: var(--text-dim);
@@ -1490,8 +1521,9 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   margin-top: 36px;
+  flex-wrap: wrap;
 }
 
 .t-dot {
@@ -1499,14 +1531,42 @@ button {
   height: 10px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.2);
+  border: none;
+  cursor: pointer;
+  padding: 0;
   transition: all var(--transition-spring);
+}
+
+.t-dot:hover {
+  background: rgba(255, 255, 255, 0.45);
 }
 
 .t-dot.active {
   background: var(--primary-light);
-  width: 28px;
+  width: 26px;
   border-radius: 12px;
   box-shadow: 0 0 12px var(--primary-light);
+}
+
+/* Mobile responsive slider */
+@media (max-width: 768px) {
+  .testimonial-card {
+    flex: 0 0 100%;
+    min-width: 100%;
+    padding: 26px 20px;
+  }
+
+  .testimonials-controls {
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .testimonial-count-badge {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 /* ==========================================================
@@ -1624,6 +1684,27 @@ button {
   color: var(--text-white);
   transform: translateY(-4px) scale(1.1);
   box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
+}
+
+.social-icon.email-icon:hover {
+  background: rgba(239, 68, 68, 0.22);
+  border-color: #ef4444;
+  color: #fca5a5;
+  box-shadow: 0 4px 18px rgba(239, 68, 68, 0.45);
+}
+
+.social-icon.phone-icon:hover {
+  background: rgba(59, 130, 246, 0.22);
+  border-color: #3b82f6;
+  color: #93c5fd;
+  box-shadow: 0 4px 18px rgba(59, 130, 246, 0.45);
+}
+
+.social-icon.wa-icon:hover {
+  background: rgba(37, 211, 102, 0.22);
+  border-color: #25d366;
+  color: #25d366;
+  box-shadow: 0 4px 18px rgba(37, 211, 102, 0.45);
 }
 
 .footer-copyright {
@@ -1916,11 +1997,51 @@ button {
 .footer-contact-details {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   flex-wrap: wrap;
   justify-content: center;
   width: 100%;
-  margin: 10px 0;
+  margin: 14px 0 10px 0;
+}
+
+.footer-contact-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-full);
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--text-white);
+  transition: all var(--transition-fast);
+}
+
+.footer-contact-pill:hover {
+  background: rgba(168, 85, 247, 0.2);
+  border-color: var(--primary-accent);
+  color: var(--text-white);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(168, 85, 247, 0.35);
+}
+
+.footer-contact-pill.phone-pill:hover,
+.quick-contact-pill.phone-pill:hover,
+.profile-reach-pill.phone-pill:hover {
+  background: rgba(59, 130, 246, 0.2);
+  border-color: #3b82f6;
+  color: #93c5fd;
+  box-shadow: 0 4px 16px rgba(59, 130, 246, 0.35);
+}
+
+.footer-contact-pill.wa-pill:hover,
+.quick-contact-pill.wa-pill:hover,
+.profile-reach-pill.wa:hover {
+  background: rgba(37, 211, 102, 0.2);
+  border-color: #25d366;
+  color: #25d366;
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.35);
 }
 
 .footer-contact-link {
@@ -2336,10 +2457,6 @@ button {
     grid-template-columns: 1fr;
   }
 
-  .testimonials-track {
-    grid-template-columns: 1fr;
-  }
-
   .stats-grid {
     grid-template-columns: 1fr;
   }
@@ -2386,20 +2503,6 @@ button {
     padding: 10px;
   }
 
-  .circular-badge-wrapper {
-    width: 82px;
-    height: 82px;
-    bottom: -20px;
-    right: -5px;
-  }
-
-  .badge-live-tag {
-    font-size: 0.5rem;
-    padding: 2px 6px;
-    top: -4px;
-    right: 0px;
-  }
-
   .services-grid {
     grid-template-columns: 1fr;
     gap: 16px;
@@ -2409,18 +2512,20 @@ button {
     padding: 24px 20px;
   }
 
-  /* About section Android optimization */
+  /* About section mobile card optimization */
   .about-avatar-wrapper {
-    width: 260px;
-    height: 260px;
-    max-width: 75vw;
-    max-height: 75vw;
+    max-width: 320px;
+    width: 100%;
     margin: 0 auto;
+    padding: 10px;
+  }
+
+  .about-avatar-img {
+    height: 340px;
   }
 
   .about-circle-glow {
-    width: 260px;
-    height: 260px;
+    display: none !important;
   }
 
   .about-title {
@@ -2515,15 +2620,11 @@ button {
     max-width: 260px;
   }
 
-  .circular-badge-wrapper {
-    width: 74px;
-    height: 74px;
-    bottom: -15px;
-    right: -5px;
+  .about-avatar-wrapper {
+    max-width: 260px;
   }
 
-  .about-avatar-wrapper {
-    width: 220px;
-    height: 220px;
+  .about-avatar-img {
+    height: 280px;
   }
 }
