@@ -1128,6 +1128,19 @@ function openProjectModal(title, category, imageSrc, description, videoUrl) {
       modalImg.style.display = 'none';
       if (playOverlay) playOverlay.style.display = 'none';
       if (toggleBtn) toggleBtn.textContent = '🖼️ View Thumbnail';
+      
+      modalVideo.onloadedmetadata = function() {
+        const isVertical = modalVideo.videoHeight > modalVideo.videoWidth;
+        const card = document.querySelector('.project-lightbox-card');
+        if (card) {
+          if (!isVertical && modalVideo.videoWidth > 0) {
+            card.classList.add('horizontal-mode');
+          } else {
+            card.classList.remove('horizontal-mode');
+          }
+        }
+      };
+      
       modalVideo.load();
       modalVideo.play().catch(() => {});
     } else {
