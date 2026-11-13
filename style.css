@@ -1070,11 +1070,24 @@ button {
   background: rgba(168, 85, 247, 0.12);
   border: 1px solid rgba(168, 85, 247, 0.3);
   transition: transform var(--transition-spring), box-shadow var(--transition-fast);
+  overflow: hidden;
 }
 
 .service-card:hover .service-icon {
   transform: scale(1.15) rotate(5deg);
   box-shadow: 0 0 25px rgba(168, 85, 247, 0.5);
+}
+
+.service-logo-img {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(168, 85, 247, 0.45));
+  transition: transform var(--transition-spring);
+}
+
+.service-card:hover .service-logo-img {
+  transform: scale(1.1);
 }
 
 .service-title {
@@ -1707,6 +1720,27 @@ button {
   box-shadow: 0 4px 18px rgba(37, 211, 102, 0.45);
 }
 
+.social-icon.insta-icon:hover {
+  background: rgba(225, 48, 108, 0.22);
+  border-color: #e1306c;
+  color: #f472b6;
+  box-shadow: 0 4px 18px rgba(225, 48, 108, 0.45);
+}
+
+.social-icon.discord-icon:hover {
+  background: rgba(88, 101, 242, 0.22);
+  border-color: #5865f2;
+  color: #818cf8;
+  box-shadow: 0 4px 18px rgba(88, 101, 242, 0.45);
+}
+
+.social-icon.telegram-icon:hover {
+  background: rgba(34, 158, 217, 0.22);
+  border-color: #229ed9;
+  color: #38bdf8;
+  box-shadow: 0 4px 18px rgba(34, 158, 217, 0.45);
+}
+
 .footer-copyright {
   font-size: 0.88rem;
   color: var(--text-dim);
@@ -2042,6 +2076,33 @@ button {
   border-color: #25d366;
   color: #25d366;
   box-shadow: 0 4px 16px rgba(37, 211, 102, 0.35);
+}
+
+.footer-contact-pill.insta-pill:hover,
+.quick-contact-pill.insta-pill:hover,
+.profile-reach-pill.insta:hover {
+  background: rgba(225, 48, 108, 0.2);
+  border-color: #e1306c;
+  color: #f472b6;
+  box-shadow: 0 4px 16px rgba(225, 48, 108, 0.35);
+}
+
+.footer-contact-pill.discord-pill:hover,
+.quick-contact-pill.discord-pill:hover,
+.profile-reach-pill.discord:hover {
+  background: rgba(88, 101, 242, 0.2);
+  border-color: #5865f2;
+  color: #818cf8;
+  box-shadow: 0 4px 16px rgba(88, 101, 242, 0.35);
+}
+
+.footer-contact-pill.telegram-pill:hover,
+.quick-contact-pill.telegram-pill:hover,
+.profile-reach-pill.telegram:hover {
+  background: rgba(34, 158, 217, 0.2);
+  border-color: #229ed9;
+  color: #38bdf8;
+  box-shadow: 0 4px 16px rgba(34, 158, 217, 0.35);
 }
 
 .footer-contact-link {
