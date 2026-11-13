@@ -301,9 +301,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const filterValue = btn.getAttribute('data-filter');
 
       portfolioCards.forEach(card => {
-        const category = card.getAttribute('data-category');
+        const categoryAttr = card.getAttribute('data-category') || '';
+        const categories = categoryAttr.split(/\s+/);
         
-        if (filterValue === 'all' || category === filterValue) {
+        if (filterValue === 'all' || categories.indexOf(filterValue) !== -1 || categoryAttr === filterValue) {
           card.style.display = 'flex';
           card.style.opacity = '0';
           card.style.transform = 'scale(0.92) translateY(20px)';

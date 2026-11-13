@@ -234,7 +234,7 @@
           </div>
 
           <!-- Service Card 2: UI Animation -->
-          <div class="service-card spotlight-card tilt-card reveal-fade-up" style="--delay: 0.2s;">
+          <div class="service-card spotlight-card tilt-card reveal-fade-up" style="--delay: 0.2s; cursor: pointer;" onclick="filterAndScrollPortfolio('ui-animation')" title="Click to view UI Animation portfolio projects">
             <div class="service-icon-wrapper">
               <div class="service-icon">
                 <img src="assets/specialty-ui-animation.png" alt="UI Animation Logo" class="service-logo-img">
@@ -317,6 +317,7 @@
           <!-- Filter Tabs -->
           <div class="portfolio-filters" id="portfolioFilters">
             <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="ui-animation">UI ANIMATION</button>
             <button class="filter-btn" data-filter="minimal">MINIMAL EDIT</button>
             <button class="filter-btn" data-filter="viral">VIRAL</button>
             <button class="filter-btn" data-filter="talking-head">TALKING HEAD</button>
@@ -465,11 +466,11 @@
             </div>
           </div>
 
-          <!-- Card 2: UI Animation (Featured Video) -->
-          <div class="portfolio-card spotlight-card tilt-card reveal-fade-up" data-category="animation" style="--delay: 0.2s;" onclick="openProjectModal('Smooth User Interactions', 'UI ANIMATION', 'assets/portfolio-ui.png', 'Modern mobile app UI motion design demonstrating micro-interactions, smooth card transitions, glowing 3D perspective layers, and interactive feedback flows.', 'assets/project-video-3.mp4')">
+          <!-- UI Animation Card 1 -->
+          <div class="portfolio-card spotlight-card tilt-card reveal-fade-up" data-category="ui-animation animation" style="--delay: 0.1s;" onclick="openProjectModal('UI Animation 01 - Mobile Flow &amp; Interactions', 'UI ANIMATION', 'assets/portfolio-uianim-1.png', 'Modern mobile app UI motion design demonstrating micro-interactions, smooth screen flows, and interactive feedback.', 'assets/ui-animation-1.mp4')">
             <div class="card-thumb-wrapper">
-              <img src="assets/portfolio-ui.png" alt="Smooth User Interactions" class="card-thumb">
-              <div class="card-badge-video">▶ VIDEO (0:16)</div>
+              <video class="card-thumb" src="assets/ui-animation-1.mp4#t=0.5" preload="metadata" muted playsinline loop poster="assets/portfolio-uianim-1.png"></video>
+              <div class="card-badge-video">▶ VIDEO</div>
               <div class="card-overlay">
                 <span class="preview-badge">▶ Watch Video ↗</span>
               </div>
@@ -477,7 +478,99 @@
             <div class="card-info">
               <div class="card-text">
                 <span class="card-category">UI ANIMATION</span>
-                <h4 class="card-title">Smooth User Interactions</h4>
+                <h4 class="card-title">UI Animation 01 - Mobile Flow &amp; Interactions</h4>
+              </div>
+              <div class="card-arrow" aria-label="Open project">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- UI Animation Card 2 -->
+          <div class="portfolio-card spotlight-card tilt-card reveal-fade-up" data-category="ui-animation animation" style="--delay: 0.15s;" onclick="openProjectModal('UI Animation 02 - Micro-Interactions &amp; Clicks', 'UI ANIMATION', 'assets/portfolio-uianim-2.png', 'Crisp button haptics, toggles, fluid transitions, and glowing visual cues for enhanced UX engagement.', 'assets/ui-animation-2.mp4')">
+            <div class="card-thumb-wrapper">
+              <video class="card-thumb" src="assets/ui-animation-2.mp4#t=0.5" preload="metadata" muted playsinline loop poster="assets/portfolio-uianim-2.png"></video>
+              <div class="card-badge-video">▶ VIDEO</div>
+              <div class="card-overlay">
+                <span class="preview-badge">▶ Watch Video ↗</span>
+              </div>
+            </div>
+            <div class="card-info">
+              <div class="card-text">
+                <span class="card-category">UI ANIMATION</span>
+                <h4 class="card-title">UI Animation 02 - Micro-Interactions &amp; Clicks</h4>
+              </div>
+              <div class="card-arrow" aria-label="Open project">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- UI Animation Card 3 -->
+          <div class="portfolio-card spotlight-card tilt-card reveal-fade-up" data-category="ui-animation animation" style="--delay: 0.2s;" onclick="openProjectModal('UI Animation 03 - Isometric Dashboard Showcase', 'UI ANIMATION', 'assets/portfolio-uianim-3.png', 'Isometric angle presentation, multi-layered card elevations, and dynamic data visualization motion.', 'assets/ui-animation-3.mp4')">
+            <div class="card-thumb-wrapper">
+              <video class="card-thumb" src="assets/ui-animation-3.mp4#t=0.5" preload="metadata" muted playsinline loop poster="assets/portfolio-uianim-3.png"></video>
+              <div class="card-badge-video">▶ VIDEO</div>
+              <div class="card-overlay">
+                <span class="preview-badge">▶ Watch Video ↗</span>
+              </div>
+            </div>
+            <div class="card-info">
+              <div class="card-text">
+                <span class="card-category">UI ANIMATION</span>
+                <h4 class="card-title">UI Animation 03 - Isometric Dashboard Showcase</h4>
+              </div>
+              <div class="card-arrow" aria-label="Open project">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- UI Animation Card 4 -->
+          <div class="portfolio-card spotlight-card tilt-card reveal-fade-up" data-category="ui-animation animation" style="--delay: 0.25s;" onclick="openProjectModal('UI Animation 04 - Fluid Motion &amp; Screen Transitions', 'UI ANIMATION', 'assets/portfolio-uianim-4.png', 'Seamless screen-to-screen transitions, kinetic component morphing, and high-retention visual rhythm.', 'assets/ui-animation-4.mp4')">
+            <div class="card-thumb-wrapper">
+              <video class="card-thumb" src="assets/ui-animation-4.mp4#t=0.5" preload="metadata" muted playsinline loop poster="assets/portfolio-uianim-4.png"></video>
+              <div class="card-badge-video">▶ VIDEO</div>
+              <div class="card-overlay">
+                <span class="preview-badge">▶ Watch Video ↗</span>
+              </div>
+            </div>
+            <div class="card-info">
+              <div class="card-text">
+                <span class="card-category">UI ANIMATION</span>
+                <h4 class="card-title">UI Animation 04 - Fluid Motion &amp; Screen Transitions</h4>
+              </div>
+              <div class="card-arrow" aria-label="Open project">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- UI Animation Card 5 -->
+          <div class="portfolio-card spotlight-card tilt-card reveal-fade-up" data-category="ui-animation animation" style="--delay: 0.3s;" onclick="openProjectModal('UI Animation 05 - Modern App Onboarding Experience', 'UI ANIMATION', 'assets/portfolio-uianim-5.png', 'Engaging product onboarding walkthrough featuring vibrant animations, feature highlights, and gesture prompts.', 'assets/ui-animation-5.mp4')">
+            <div class="card-thumb-wrapper">
+              <video class="card-thumb" src="assets/ui-animation-5.mp4#t=0.5" preload="metadata" muted playsinline loop poster="assets/portfolio-uianim-5.png"></video>
+              <div class="card-badge-video">▶ VIDEO</div>
+              <div class="card-overlay">
+                <span class="preview-badge">▶ Watch Video ↗</span>
+              </div>
+            </div>
+            <div class="card-info">
+              <div class="card-text">
+                <span class="card-category">UI ANIMATION</span>
+                <h4 class="card-title">UI Animation 05 - Modern App Onboarding Experience</h4>
               </div>
               <div class="card-arrow" aria-label="Open project">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
