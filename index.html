@@ -273,7 +273,7 @@
           </div>
 
           <!-- Service Card 5: Minimal Edit -->
-          <div class="service-card spotlight-card tilt-card reveal-fade-up" style="--delay: 0.25s;">
+          <div class="service-card spotlight-card tilt-card reveal-fade-up" style="--delay: 0.25s; cursor: pointer;" onclick="filterAndScrollPortfolio('minimal')" title="Click to view Minimal Edit portfolio projects">
             <div class="service-icon-wrapper">
               <div class="service-icon">
                 <img src="assets/specialty-minimal.png" alt="Minimal Edit Logo" class="service-logo-img">
@@ -317,6 +317,7 @@
           <!-- Filter Tabs -->
           <div class="portfolio-filters" id="portfolioFilters">
             <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="minimal">MINIMAL EDIT</button>
             <button class="filter-btn" data-filter="viral">VIRAL</button>
             <button class="filter-btn" data-filter="talking-head">TALKING HEAD</button>
             <button class="filter-btn" data-filter="animation">ANIMATION</button>
@@ -325,6 +326,121 @@
 
         <!-- Portfolio Cards Grid -->
         <div class="portfolio-grid" id="portfolioGrid">
+          
+          <!-- Minimal Edit Card 1 -->
+          <div class="portfolio-card spotlight-card tilt-card reveal-fade-up" data-category="minimal" style="--delay: 0.1s;" onclick="openProjectModal('Minimal Edit 01 - Aesthetic Pacing', 'MINIMAL EDIT', 'assets/portfolio-minimal-1.png', 'Clean, refined visual storytelling with minimalist typography, seamless pacing, and atmospheric audio design.', 'assets/minimal-edit-1.mp4')">
+            <div class="card-thumb-wrapper">
+              <video class="card-thumb" src="assets/minimal-edit-1.mp4#t=0.5" preload="metadata" muted playsinline loop poster="assets/portfolio-minimal-1.png"></video>
+              <div class="card-badge-video">▶ VIDEO</div>
+              <div class="card-overlay">
+                <span class="preview-badge">▶ Watch Video ↗</span>
+              </div>
+            </div>
+            <div class="card-info">
+              <div class="card-text">
+                <span class="card-category">MINIMAL EDIT</span>
+                <h4 class="card-title">Minimal Edit 01 - Aesthetic Pacing</h4>
+              </div>
+              <div class="card-arrow" aria-label="Open project">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Minimal Edit Card 2 -->
+          <div class="portfolio-card spotlight-card tilt-card reveal-fade-up" data-category="minimal" style="--delay: 0.15s;" onclick="openProjectModal('Minimal Edit 02 - Kinetic Typography', 'MINIMAL EDIT', 'assets/portfolio-minimal-2.png', 'Dynamic typography, subtle zoom transitions, and smooth rhythm crafted for high engagement.', 'assets/minimal-edit-2.mp4')">
+            <div class="card-thumb-wrapper">
+              <video class="card-thumb" src="assets/minimal-edit-2.mp4#t=0.5" preload="metadata" muted playsinline loop poster="assets/portfolio-minimal-2.png"></video>
+              <div class="card-badge-video">▶ VIDEO</div>
+              <div class="card-overlay">
+                <span class="preview-badge">▶ Watch Video ↗</span>
+              </div>
+            </div>
+            <div class="card-info">
+              <div class="card-text">
+                <span class="card-category">MINIMAL EDIT</span>
+                <h4 class="card-title">Minimal Edit 02 - Kinetic Typography</h4>
+              </div>
+              <div class="card-arrow" aria-label="Open project">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Minimal Edit Card 3 -->
+          <div class="portfolio-card spotlight-card tilt-card reveal-fade-up" data-category="minimal" style="--delay: 0.2s;" onclick="openProjectModal('Minimal Edit 03 - Seamless Narrative', 'MINIMAL EDIT', 'assets/portfolio-minimal-3.png', 'Narrative-driven visual composition with sound design accents, color harmony, and clean cuts.', 'assets/minimal-edit-3.mp4')">
+            <div class="card-thumb-wrapper">
+              <video class="card-thumb" src="assets/minimal-edit-3.mp4#t=0.5" preload="metadata" muted playsinline loop poster="assets/portfolio-minimal-3.png"></video>
+              <div class="card-badge-video">▶ VIDEO</div>
+              <div class="card-overlay">
+                <span class="preview-badge">▶ Watch Video ↗</span>
+              </div>
+            </div>
+            <div class="card-info">
+              <div class="card-text">
+                <span class="card-category">MINIMAL EDIT</span>
+                <h4 class="card-title">Minimal Edit 03 - Seamless Narrative</h4>
+              </div>
+              <div class="card-arrow" aria-label="Open project">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Minimal Edit Card 4 -->
+          <div class="portfolio-card spotlight-card tilt-card reveal-fade-up" data-category="minimal" style="--delay: 0.25s;" onclick="openProjectModal('Minimal Edit 04 - Clean Visual Flow', 'MINIMAL EDIT', 'assets/portfolio-minimal-4.png', 'Modern pacing, smooth micro-zooms, clean title lower-thirds, and aesthetic visual flow.', 'assets/minimal-edit-4.mp4')">
+            <div class="card-thumb-wrapper">
+              <video class="card-thumb" src="assets/minimal-edit-4.mp4#t=0.5" preload="metadata" muted playsinline loop poster="assets/portfolio-minimal-4.png"></video>
+              <div class="card-badge-video">▶ VIDEO</div>
+              <div class="card-overlay">
+                <span class="preview-badge">▶ Watch Video ↗</span>
+              </div>
+            </div>
+            <div class="card-info">
+              <div class="card-text">
+                <span class="card-category">MINIMAL EDIT</span>
+                <h4 class="card-title">Minimal Edit 04 - Clean Visual Flow</h4>
+              </div>
+              <div class="card-arrow" aria-label="Open project">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Minimal Edit Card 5 -->
+          <div class="portfolio-card spotlight-card tilt-card reveal-fade-up" data-category="minimal" style="--delay: 0.3s;" onclick="openProjectModal('Minimal Edit 05 - Refined Storytelling', 'MINIMAL EDIT', 'assets/portfolio-minimal-5.png', 'High-retention storytelling edit combining clean typography, atmospheric sound design, and elegant cuts.', 'assets/minimal-edit-5.mp4')">
+            <div class="card-thumb-wrapper">
+              <video class="card-thumb" src="assets/minimal-edit-5.mp4#t=0.5" preload="metadata" muted playsinline loop poster="assets/portfolio-minimal-5.png"></video>
+              <div class="card-badge-video">▶ VIDEO</div>
+              <div class="card-overlay">
+                <span class="preview-badge">▶ Watch Video ↗</span>
+              </div>
+            </div>
+            <div class="card-info">
+              <div class="card-text">
+                <span class="card-category">MINIMAL EDIT</span>
+                <h4 class="card-title">Minimal Edit 05 - Refined Storytelling</h4>
+              </div>
+              <div class="card-arrow" aria-label="Open project">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </div>
+          </div>
           
           <!-- Card 1: Gaming Edit (Featured Video) -->
           <div class="portfolio-card spotlight-card tilt-card reveal-fade-up" data-category="viral" style="--delay: 0.1s;" onclick="openProjectModal('Competitive Gameplay Edits', 'GAMMING EDIT', 'assets/portfolio-gaming.png', 'High-energy cinematic gameplay edit featuring seamless beat synchronization, motion camera zooms, 3D typography, and custom sound design designed to maximize viewer retention.', 'assets/project-video.mp4')">

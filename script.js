@@ -319,6 +319,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Video hover preview on portfolio cards
+  portfolioCards.forEach(card => {
+    const video = card.querySelector('video.card-thumb');
+    if (video) {
+      card.addEventListener('mouseenter', () => {
+        video.play().catch(() => {});
+      });
+      card.addEventListener('mouseleave', () => {
+        video.pause();
+        try { video.currentTime = 0.5; } catch (e) {}
+      });
+    }
+  });
+
   /* ====================================================
      10. ANIMATED STATS COUNTER ON SCROLL
   ==================================================== */
@@ -1186,5 +1200,19 @@ function closeProfileModal() {
   if (modal) {
     modal.classList.remove('active');
     document.body.style.overflow = '';
+  }
+}
+
+/* ====================================================
+   SERVICE CARD TO PORTFOLIO FILTER CONNECTOR
+==================================================== */
+function filterAndScrollPortfolio(category) {
+  const btn = document.querySelector(`.filter-btn[data-filter="${category}"]`);
+  if (btn) {
+    btn.click();
+  }
+  const portfolio = document.getElementById('portfolio');
+  if (portfolio) {
+    portfolio.scrollIntoView({ behavior: 'smooth' });
   }
 }
