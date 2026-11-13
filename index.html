@@ -286,7 +286,7 @@
           </div>
 
           <!-- Service Card 6: Talking Head -->
-          <div class="service-card spotlight-card tilt-card reveal-fade-up" style="--delay: 0.35s;">
+          <div class="service-card spotlight-card tilt-card reveal-fade-up" style="--delay: 0.35s; cursor: pointer;" onclick="filterAndScrollPortfolio('talking-head')" title="Click to view Talking Head portfolio projects">
             <div class="service-icon-wrapper">
               <div class="service-icon">
                 <img src="assets/specialty-talking-head.png" alt="Talking Head Logo" class="service-logo-img">
@@ -488,11 +488,11 @@
             </div>
           </div>
 
-          <!-- Card 3: Talking Head (Featured Video) -->
-          <div class="portfolio-card spotlight-card tilt-card reveal-fade-up" data-category="talking-head" style="--delay: 0.15s;" onclick="openProjectModal('Professional Content Editing', 'TALKING HEAD', 'assets/portfolio-talkinghead.png', 'Crisp creator editing with Alex Hormozi style animated captions, sound effects, pop-up graphics, b-roll insertions, and color grading.', 'assets/project-video-4.mp4')">
+          <!-- Talking Head Card 1 -->
+          <div class="portfolio-card spotlight-card tilt-card reveal-fade-up" data-category="talking-head" style="--delay: 0.1s;" onclick="openProjectModal('Talking Head 01 - Dynamic Hooks', 'TALKING HEAD', 'assets/portfolio-talkinghead-1.png', 'High-retention creator edit featuring dynamic animated captions, sound effects, and punchy hook pacing.', 'assets/talking-head-1.mp4')">
             <div class="card-thumb-wrapper">
-              <img src="assets/portfolio-talkinghead.png" alt="Professional Content Editing" class="card-thumb">
-              <div class="card-badge-video">▶ VIDEO (0:13)</div>
+              <video class="card-thumb" src="assets/talking-head-1.mp4#t=0.5" preload="metadata" muted playsinline loop poster="assets/portfolio-talkinghead-1.png"></video>
+              <div class="card-badge-video">▶ VIDEO</div>
               <div class="card-overlay">
                 <span class="preview-badge">▶ Watch Video ↗</span>
               </div>
@@ -500,7 +500,99 @@
             <div class="card-info">
               <div class="card-text">
                 <span class="card-category">TALKING HEAD</span>
-                <h4 class="card-title">Professional Content Editing</h4>
+                <h4 class="card-title">Talking Head 01 - Dynamic Hooks</h4>
+              </div>
+              <div class="card-arrow" aria-label="Open project">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Talking Head Card 2 -->
+          <div class="portfolio-card spotlight-card tilt-card reveal-fade-up" data-category="talking-head" style="--delay: 0.15s;" onclick="openProjectModal('Talking Head 02 - Kinetic Captions', 'TALKING HEAD', 'assets/portfolio-talkinghead-2.png', 'Alex Hormozi style animated subtitles, visual b-roll popups, and micro-animations for peak audience focus.', 'assets/talking-head-2.mp4')">
+            <div class="card-thumb-wrapper">
+              <video class="card-thumb" src="assets/talking-head-2.mp4#t=0.5" preload="metadata" muted playsinline loop poster="assets/portfolio-talkinghead-2.png"></video>
+              <div class="card-badge-video">▶ VIDEO</div>
+              <div class="card-overlay">
+                <span class="preview-badge">▶ Watch Video ↗</span>
+              </div>
+            </div>
+            <div class="card-info">
+              <div class="card-text">
+                <span class="card-category">TALKING HEAD</span>
+                <h4 class="card-title">Talking Head 02 - Kinetic Captions</h4>
+              </div>
+              <div class="card-arrow" aria-label="Open project">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Talking Head Card 3 -->
+          <div class="portfolio-card spotlight-card tilt-card reveal-fade-up" data-category="talking-head" style="--delay: 0.2s;" onclick="openProjectModal('Talking Head 03 - Visual Storytelling', 'TALKING HEAD', 'assets/portfolio-talkinghead-3.png', 'Seamless creator video flow with sound design accents, camera push-ins, and polished color grading.', 'assets/talking-head-3.mp4')">
+            <div class="card-thumb-wrapper">
+              <video class="card-thumb" src="assets/talking-head-3.mp4#t=0.5" preload="metadata" muted playsinline loop poster="assets/portfolio-talkinghead-3.png"></video>
+              <div class="card-badge-video">▶ VIDEO</div>
+              <div class="card-overlay">
+                <span class="preview-badge">▶ Watch Video ↗</span>
+              </div>
+            </div>
+            <div class="card-info">
+              <div class="card-text">
+                <span class="card-category">TALKING HEAD</span>
+                <h4 class="card-title">Talking Head 03 - Visual Storytelling</h4>
+              </div>
+              <div class="card-arrow" aria-label="Open project">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Talking Head Card 4 -->
+          <div class="portfolio-card spotlight-card tilt-card reveal-fade-up" data-category="talking-head" style="--delay: 0.25s;" onclick="openProjectModal('Talking Head 04 - High Retention Cut', 'TALKING HEAD', 'assets/portfolio-talkinghead-4.png', 'Rapid-cut informational editing with kinetic graphics, emphasis zooms, and atmospheric background audio.', 'assets/talking-head-4.mp4')">
+            <div class="card-thumb-wrapper">
+              <video class="card-thumb" src="assets/talking-head-4.mp4#t=0.5" preload="metadata" muted playsinline loop poster="assets/portfolio-talkinghead-4.png"></video>
+              <div class="card-badge-video">▶ VIDEO</div>
+              <div class="card-overlay">
+                <span class="preview-badge">▶ Watch Video ↗</span>
+              </div>
+            </div>
+            <div class="card-info">
+              <div class="card-text">
+                <span class="card-category">TALKING HEAD</span>
+                <h4 class="card-title">Talking Head 04 - High Retention Cut</h4>
+              </div>
+              <div class="card-arrow" aria-label="Open project">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Talking Head Card 5 -->
+          <div class="portfolio-card spotlight-card tilt-card reveal-fade-up" data-category="talking-head" style="--delay: 0.3s;" onclick="openProjectModal('Talking Head 05 - Authority & Impact', 'TALKING HEAD', 'assets/portfolio-talkinghead-5.png', 'Crisp professional talking-head edit optimized for YouTube Shorts, Reels, and high engagement.', 'assets/talking-head-5.mp4')">
+            <div class="card-thumb-wrapper">
+              <video class="card-thumb" src="assets/talking-head-5.mp4#t=0.5" preload="metadata" muted playsinline loop poster="assets/portfolio-talkinghead-5.png"></video>
+              <div class="card-badge-video">▶ VIDEO</div>
+              <div class="card-overlay">
+                <span class="preview-badge">▶ Watch Video ↗</span>
+              </div>
+            </div>
+            <div class="card-info">
+              <div class="card-text">
+                <span class="card-category">TALKING HEAD</span>
+                <h4 class="card-title">Talking Head 05 - Authority & Impact</h4>
               </div>
               <div class="card-arrow" aria-label="Open project">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
