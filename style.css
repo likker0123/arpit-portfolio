@@ -926,8 +926,9 @@ button {
   height: 420px;
   border-radius: 20px;
   object-fit: cover;
-  object-position: center 10%;
+  object-position: center 8%;
   display: block;
+  background: radial-gradient(circle at 50% 28%, rgba(168, 85, 247, 0.28) 0%, rgba(20, 16, 32, 0.75) 100%);
   transition: transform var(--transition-slow);
 }
 
