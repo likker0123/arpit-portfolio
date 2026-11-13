@@ -301,9 +301,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const filterValue = btn.getAttribute('data-filter');
 
       portfolioCards.forEach(card => {
-        const category = card.getAttribute('data-category');
+        const categoryAttr = card.getAttribute('data-category') || '';
+        const categories = categoryAttr.split(/\s+/);
         
-        if (filterValue === 'all' || category === filterValue) {
+        if (filterValue === 'all' || categories.indexOf(filterValue) !== -1 || categoryAttr === filterValue) {
           card.style.display = 'flex';
           card.style.opacity = '0';
           card.style.transform = 'scale(0.92) translateY(20px)';
@@ -317,6 +318,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     });
+  });
+
+  // Video hover preview on portfolio cards
+  portfolioCards.forEach(card => {
+    const video = card.querySelector('video.card-thumb');
+    if (video) {
+      card.addEventListener('mouseenter', () => {
+        video.play().catch(() => {});
+      });
+      card.addEventListener('mouseleave', () => {
+        video.pause();
+        try { video.currentTime = 0.5; } catch (e) {}
+      });
+    }
   });
 
   /* ====================================================
@@ -1186,5 +1201,19 @@ function closeProfileModal() {
   if (modal) {
     modal.classList.remove('active');
     document.body.style.overflow = '';
+  }
+}
+
+/* ====================================================
+   SERVICE CARD TO PORTFOLIO FILTER CONNECTOR
+==================================================== */
+function filterAndScrollPortfolio(category) {
+  const btn = document.querySelector(`.filter-btn[data-filter="${category}"]`);
+  if (btn) {
+    btn.click();
+  }
+  const portfolio = document.getElementById('portfolio');
+  if (portfolio) {
+    portfolio.scrollIntoView({ behavior: 'smooth' });
   }
 }

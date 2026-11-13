@@ -234,7 +234,7 @@
           </div>
 
           <!-- Service Card 2: UI Animation -->
-          <div class="service-card spotlight-card tilt-card reveal-fade-up" style="--delay: 0.2s;">
+          <div class="service-card spotlight-card tilt-card reveal-fade-up" style="--delay: 0.2s; cursor: pointer;" onclick="filterAndScrollPortfolio('ui-animation')" title="Click to view UI Animation portfolio projects">
             <div class="service-icon-wrapper">
               <div class="service-icon">
                 <img src="assets/specialty-ui-animation.png" alt="UI Animation Logo" class="service-logo-img">
@@ -273,7 +273,7 @@
           </div>
 
           <!-- Service Card 5: Minimal Edit -->
-          <div class="service-card spotlight-card tilt-card reveal-fade-up" style="--delay: 0.25s;">
+          <div class="service-card spotlight-card tilt-card reveal-fade-up" style="--delay: 0.25s; cursor: pointer;" onclick="filterAndScrollPortfolio('minimal')" title="Click to view Minimal Edit portfolio projects">
             <div class="service-icon-wrapper">
               <div class="service-icon">
                 <img src="assets/specialty-minimal.png" alt="Minimal Edit Logo" class="service-logo-img">
@@ -286,7 +286,7 @@
           </div>
 
           <!-- Service Card 6: Talking Head -->
-          <div class="service-card spotlight-card tilt-card reveal-fade-up" style="--delay: 0.35s;">
+          <div class="service-card spotlight-card tilt-card reveal-fade-up" style="--delay: 0.35s; cursor: pointer;" onclick="filterAndScrollPortfolio('talking-head')" title="Click to view Talking Head portfolio projects">
             <div class="service-icon-wrapper">
               <div class="service-icon">
                 <img src="assets/specialty-talking-head.png" alt="Talking Head Logo" class="service-logo-img">
@@ -317,6 +317,8 @@
           <!-- Filter Tabs -->
           <div class="portfolio-filters" id="portfolioFilters">
             <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="ui-animation">UI ANIMATION</button>
+            <button class="filter-btn" data-filter="minimal">MINIMAL EDIT</button>
             <button class="filter-btn" data-filter="viral">VIRAL</button>
             <button class="filter-btn" data-filter="talking-head">TALKING HEAD</button>
             <button class="filter-btn" data-filter="animation">ANIMATION</button>
@@ -325,6 +327,121 @@
 
         <!-- Portfolio Cards Grid -->
         <div class="portfolio-grid" id="portfolioGrid">
+          
+          <!-- Minimal Edit Card 1 -->
+          <div class="portfolio-card spotlight-card tilt-card reveal-fade-up" data-category="minimal" style="--delay: 0.1s;" onclick="openProjectModal('Minimal Edit 01 - Aesthetic Pacing', 'MINIMAL EDIT', 'assets/portfolio-minimal-1.png', 'Clean, refined visual storytelling with minimalist typography, seamless pacing, and atmospheric audio design.', 'assets/minimal-edit-1.mp4')">
+            <div class="card-thumb-wrapper">
+              <video class="card-thumb" src="assets/minimal-edit-1.mp4#t=0.5" preload="metadata" muted playsinline loop poster="assets/portfolio-minimal-1.png"></video>
+              <div class="card-badge-video">▶ VIDEO</div>
+              <div class="card-overlay">
+                <span class="preview-badge">▶ Watch Video ↗</span>
+              </div>
+            </div>
+            <div class="card-info">
+              <div class="card-text">
+                <span class="card-category">MINIMAL EDIT</span>
+                <h4 class="card-title">Minimal Edit 01 - Aesthetic Pacing</h4>
+              </div>
+              <div class="card-arrow" aria-label="Open project">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Minimal Edit Card 2 -->
+          <div class="portfolio-card spotlight-card tilt-card reveal-fade-up" data-category="minimal" style="--delay: 0.15s;" onclick="openProjectModal('Minimal Edit 02 - Kinetic Typography', 'MINIMAL EDIT', 'assets/portfolio-minimal-2.png', 'Dynamic typography, subtle zoom transitions, and smooth rhythm crafted for high engagement.', 'assets/minimal-edit-2.mp4')">
+            <div class="card-thumb-wrapper">
+              <video class="card-thumb" src="assets/minimal-edit-2.mp4#t=0.5" preload="metadata" muted playsinline loop poster="assets/portfolio-minimal-2.png"></video>
+              <div class="card-badge-video">▶ VIDEO</div>
+              <div class="card-overlay">
+                <span class="preview-badge">▶ Watch Video ↗</span>
+              </div>
+            </div>
+            <div class="card-info">
+              <div class="card-text">
+                <span class="card-category">MINIMAL EDIT</span>
+                <h4 class="card-title">Minimal Edit 02 - Kinetic Typography</h4>
+              </div>
+              <div class="card-arrow" aria-label="Open project">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Minimal Edit Card 3 -->
+          <div class="portfolio-card spotlight-card tilt-card reveal-fade-up" data-category="minimal" style="--delay: 0.2s;" onclick="openProjectModal('Minimal Edit 03 - Seamless Narrative', 'MINIMAL EDIT', 'assets/portfolio-minimal-3.png', 'Narrative-driven visual composition with sound design accents, color harmony, and clean cuts.', 'assets/minimal-edit-3.mp4')">
+            <div class="card-thumb-wrapper">
+              <video class="card-thumb" src="assets/minimal-edit-3.mp4#t=0.5" preload="metadata" muted playsinline loop poster="assets/portfolio-minimal-3.png"></video>
+              <div class="card-badge-video">▶ VIDEO</div>
+              <div class="card-overlay">
+                <span class="preview-badge">▶ Watch Video ↗</span>
+              </div>
+            </div>
+            <div class="card-info">
+              <div class="card-text">
+                <span class="card-category">MINIMAL EDIT</span>
+                <h4 class="card-title">Minimal Edit 03 - Seamless Narrative</h4>
+              </div>
+              <div class="card-arrow" aria-label="Open project">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Minimal Edit Card 4 -->
+          <div class="portfolio-card spotlight-card tilt-card reveal-fade-up" data-category="minimal" style="--delay: 0.25s;" onclick="openProjectModal('Minimal Edit 04 - Clean Visual Flow', 'MINIMAL EDIT', 'assets/portfolio-minimal-4.png', 'Modern pacing, smooth micro-zooms, clean title lower-thirds, and aesthetic visual flow.', 'assets/minimal-edit-4.mp4')">
+            <div class="card-thumb-wrapper">
+              <video class="card-thumb" src="assets/minimal-edit-4.mp4#t=0.5" preload="metadata" muted playsinline loop poster="assets/portfolio-minimal-4.png"></video>
+              <div class="card-badge-video">▶ VIDEO</div>
+              <div class="card-overlay">
+                <span class="preview-badge">▶ Watch Video ↗</span>
+              </div>
+            </div>
+            <div class="card-info">
+              <div class="card-text">
+                <span class="card-category">MINIMAL EDIT</span>
+                <h4 class="card-title">Minimal Edit 04 - Clean Visual Flow</h4>
+              </div>
+              <div class="card-arrow" aria-label="Open project">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Minimal Edit Card 5 -->
+          <div class="portfolio-card spotlight-card tilt-card reveal-fade-up" data-category="minimal" style="--delay: 0.3s;" onclick="openProjectModal('Minimal Edit 05 - Refined Storytelling', 'MINIMAL EDIT', 'assets/portfolio-minimal-5.png', 'High-retention storytelling edit combining clean typography, atmospheric sound design, and elegant cuts.', 'assets/minimal-edit-5.mp4')">
+            <div class="card-thumb-wrapper">
+              <video class="card-thumb" src="assets/minimal-edit-5.mp4#t=0.5" preload="metadata" muted playsinline loop poster="assets/portfolio-minimal-5.png"></video>
+              <div class="card-badge-video">▶ VIDEO</div>
+              <div class="card-overlay">
+                <span class="preview-badge">▶ Watch Video ↗</span>
+              </div>
+            </div>
+            <div class="card-info">
+              <div class="card-text">
+                <span class="card-category">MINIMAL EDIT</span>
+                <h4 class="card-title">Minimal Edit 05 - Refined Storytelling</h4>
+              </div>
+              <div class="card-arrow" aria-label="Open project">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </div>
+          </div>
           
           <!-- Card 1: Gaming Edit (Featured Video) -->
           <div class="portfolio-card spotlight-card tilt-card reveal-fade-up" data-category="viral" style="--delay: 0.1s;" onclick="openProjectModal('Competitive Gameplay Edits', 'GAMMING EDIT', 'assets/portfolio-gaming.png', 'High-energy cinematic gameplay edit featuring seamless beat synchronization, motion camera zooms, 3D typography, and custom sound design designed to maximize viewer retention.', 'assets/project-video.mp4')">
@@ -349,11 +466,11 @@
             </div>
           </div>
 
-          <!-- Card 2: UI Animation (Featured Video) -->
-          <div class="portfolio-card spotlight-card tilt-card reveal-fade-up" data-category="animation" style="--delay: 0.2s;" onclick="openProjectModal('Smooth User Interactions', 'UI ANIMATION', 'assets/portfolio-ui.png', 'Modern mobile app UI motion design demonstrating micro-interactions, smooth card transitions, glowing 3D perspective layers, and interactive feedback flows.', 'assets/project-video-3.mp4')">
+          <!-- UI Animation Card 1 -->
+          <div class="portfolio-card spotlight-card tilt-card reveal-fade-up" data-category="ui-animation animation" style="--delay: 0.1s;" onclick="openProjectModal('UI Animation 01 - Mobile Flow &amp; Interactions', 'UI ANIMATION', 'assets/portfolio-uianim-1.png', 'Modern mobile app UI motion design demonstrating micro-interactions, smooth screen flows, and interactive feedback.', 'assets/ui-animation-1.mp4')">
             <div class="card-thumb-wrapper">
-              <img src="assets/portfolio-ui.png" alt="Smooth User Interactions" class="card-thumb">
-              <div class="card-badge-video">▶ VIDEO (0:16)</div>
+              <video class="card-thumb" src="assets/ui-animation-1.mp4#t=0.5" preload="metadata" muted playsinline loop poster="assets/portfolio-uianim-1.png"></video>
+              <div class="card-badge-video">▶ VIDEO</div>
               <div class="card-overlay">
                 <span class="preview-badge">▶ Watch Video ↗</span>
               </div>
@@ -361,7 +478,7 @@
             <div class="card-info">
               <div class="card-text">
                 <span class="card-category">UI ANIMATION</span>
-                <h4 class="card-title">Smooth User Interactions</h4>
+                <h4 class="card-title">UI Animation 01 - Mobile Flow &amp; Interactions</h4>
               </div>
               <div class="card-arrow" aria-label="Open project">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -372,11 +489,103 @@
             </div>
           </div>
 
-          <!-- Card 3: Talking Head (Featured Video) -->
-          <div class="portfolio-card spotlight-card tilt-card reveal-fade-up" data-category="talking-head" style="--delay: 0.15s;" onclick="openProjectModal('Professional Content Editing', 'TALKING HEAD', 'assets/portfolio-talkinghead.png', 'Crisp creator editing with Alex Hormozi style animated captions, sound effects, pop-up graphics, b-roll insertions, and color grading.', 'assets/project-video-4.mp4')">
+          <!-- UI Animation Card 2 -->
+          <div class="portfolio-card spotlight-card tilt-card reveal-fade-up" data-category="ui-animation animation" style="--delay: 0.15s;" onclick="openProjectModal('UI Animation 02 - Micro-Interactions &amp; Clicks', 'UI ANIMATION', 'assets/portfolio-uianim-2.png', 'Crisp button haptics, toggles, fluid transitions, and glowing visual cues for enhanced UX engagement.', 'assets/ui-animation-2.mp4')">
             <div class="card-thumb-wrapper">
-              <img src="assets/portfolio-talkinghead.png" alt="Professional Content Editing" class="card-thumb">
-              <div class="card-badge-video">▶ VIDEO (0:13)</div>
+              <video class="card-thumb" src="assets/ui-animation-2.mp4#t=0.5" preload="metadata" muted playsinline loop poster="assets/portfolio-uianim-2.png"></video>
+              <div class="card-badge-video">▶ VIDEO</div>
+              <div class="card-overlay">
+                <span class="preview-badge">▶ Watch Video ↗</span>
+              </div>
+            </div>
+            <div class="card-info">
+              <div class="card-text">
+                <span class="card-category">UI ANIMATION</span>
+                <h4 class="card-title">UI Animation 02 - Micro-Interactions &amp; Clicks</h4>
+              </div>
+              <div class="card-arrow" aria-label="Open project">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- UI Animation Card 3 -->
+          <div class="portfolio-card spotlight-card tilt-card reveal-fade-up" data-category="ui-animation animation" style="--delay: 0.2s;" onclick="openProjectModal('UI Animation 03 - Isometric Dashboard Showcase', 'UI ANIMATION', 'assets/portfolio-uianim-3.png', 'Isometric angle presentation, multi-layered card elevations, and dynamic data visualization motion.', 'assets/ui-animation-3.mp4')">
+            <div class="card-thumb-wrapper">
+              <video class="card-thumb" src="assets/ui-animation-3.mp4#t=0.5" preload="metadata" muted playsinline loop poster="assets/portfolio-uianim-3.png"></video>
+              <div class="card-badge-video">▶ VIDEO</div>
+              <div class="card-overlay">
+                <span class="preview-badge">▶ Watch Video ↗</span>
+              </div>
+            </div>
+            <div class="card-info">
+              <div class="card-text">
+                <span class="card-category">UI ANIMATION</span>
+                <h4 class="card-title">UI Animation 03 - Isometric Dashboard Showcase</h4>
+              </div>
+              <div class="card-arrow" aria-label="Open project">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- UI Animation Card 4 -->
+          <div class="portfolio-card spotlight-card tilt-card reveal-fade-up" data-category="ui-animation animation" style="--delay: 0.25s;" onclick="openProjectModal('UI Animation 04 - Fluid Motion &amp; Screen Transitions', 'UI ANIMATION', 'assets/portfolio-uianim-4.png', 'Seamless screen-to-screen transitions, kinetic component morphing, and high-retention visual rhythm.', 'assets/ui-animation-4.mp4')">
+            <div class="card-thumb-wrapper">
+              <video class="card-thumb" src="assets/ui-animation-4.mp4#t=0.5" preload="metadata" muted playsinline loop poster="assets/portfolio-uianim-4.png"></video>
+              <div class="card-badge-video">▶ VIDEO</div>
+              <div class="card-overlay">
+                <span class="preview-badge">▶ Watch Video ↗</span>
+              </div>
+            </div>
+            <div class="card-info">
+              <div class="card-text">
+                <span class="card-category">UI ANIMATION</span>
+                <h4 class="card-title">UI Animation 04 - Fluid Motion &amp; Screen Transitions</h4>
+              </div>
+              <div class="card-arrow" aria-label="Open project">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- UI Animation Card 5 -->
+          <div class="portfolio-card spotlight-card tilt-card reveal-fade-up" data-category="ui-animation animation" style="--delay: 0.3s;" onclick="openProjectModal('UI Animation 05 - Modern App Onboarding Experience', 'UI ANIMATION', 'assets/portfolio-uianim-5.png', 'Engaging product onboarding walkthrough featuring vibrant animations, feature highlights, and gesture prompts.', 'assets/ui-animation-5.mp4')">
+            <div class="card-thumb-wrapper">
+              <video class="card-thumb" src="assets/ui-animation-5.mp4#t=0.5" preload="metadata" muted playsinline loop poster="assets/portfolio-uianim-5.png"></video>
+              <div class="card-badge-video">▶ VIDEO</div>
+              <div class="card-overlay">
+                <span class="preview-badge">▶ Watch Video ↗</span>
+              </div>
+            </div>
+            <div class="card-info">
+              <div class="card-text">
+                <span class="card-category">UI ANIMATION</span>
+                <h4 class="card-title">UI Animation 05 - Modern App Onboarding Experience</h4>
+              </div>
+              <div class="card-arrow" aria-label="Open project">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Talking Head Card 1 -->
+          <div class="portfolio-card spotlight-card tilt-card reveal-fade-up" data-category="talking-head" style="--delay: 0.1s;" onclick="openProjectModal('Talking Head 01 - Dynamic Hooks', 'TALKING HEAD', 'assets/portfolio-talkinghead-1.png', 'High-retention creator edit featuring dynamic animated captions, sound effects, and punchy hook pacing.', 'assets/talking-head-1.mp4')">
+            <div class="card-thumb-wrapper">
+              <video class="card-thumb" src="assets/talking-head-1.mp4#t=0.5" preload="metadata" muted playsinline loop poster="assets/portfolio-talkinghead-1.png"></video>
+              <div class="card-badge-video">▶ VIDEO</div>
               <div class="card-overlay">
                 <span class="preview-badge">▶ Watch Video ↗</span>
               </div>
@@ -384,7 +593,99 @@
             <div class="card-info">
               <div class="card-text">
                 <span class="card-category">TALKING HEAD</span>
-                <h4 class="card-title">Professional Content Editing</h4>
+                <h4 class="card-title">Talking Head 01 - Dynamic Hooks</h4>
+              </div>
+              <div class="card-arrow" aria-label="Open project">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Talking Head Card 2 -->
+          <div class="portfolio-card spotlight-card tilt-card reveal-fade-up" data-category="talking-head" style="--delay: 0.15s;" onclick="openProjectModal('Talking Head 02 - Kinetic Captions', 'TALKING HEAD', 'assets/portfolio-talkinghead-2.png', 'Alex Hormozi style animated subtitles, visual b-roll popups, and micro-animations for peak audience focus.', 'assets/talking-head-2.mp4')">
+            <div class="card-thumb-wrapper">
+              <video class="card-thumb" src="assets/talking-head-2.mp4#t=0.5" preload="metadata" muted playsinline loop poster="assets/portfolio-talkinghead-2.png"></video>
+              <div class="card-badge-video">▶ VIDEO</div>
+              <div class="card-overlay">
+                <span class="preview-badge">▶ Watch Video ↗</span>
+              </div>
+            </div>
+            <div class="card-info">
+              <div class="card-text">
+                <span class="card-category">TALKING HEAD</span>
+                <h4 class="card-title">Talking Head 02 - Kinetic Captions</h4>
+              </div>
+              <div class="card-arrow" aria-label="Open project">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Talking Head Card 3 -->
+          <div class="portfolio-card spotlight-card tilt-card reveal-fade-up" data-category="talking-head" style="--delay: 0.2s;" onclick="openProjectModal('Talking Head 03 - Visual Storytelling', 'TALKING HEAD', 'assets/portfolio-talkinghead-3.png', 'Seamless creator video flow with sound design accents, camera push-ins, and polished color grading.', 'assets/talking-head-3.mp4')">
+            <div class="card-thumb-wrapper">
+              <video class="card-thumb" src="assets/talking-head-3.mp4#t=0.5" preload="metadata" muted playsinline loop poster="assets/portfolio-talkinghead-3.png"></video>
+              <div class="card-badge-video">▶ VIDEO</div>
+              <div class="card-overlay">
+                <span class="preview-badge">▶ Watch Video ↗</span>
+              </div>
+            </div>
+            <div class="card-info">
+              <div class="card-text">
+                <span class="card-category">TALKING HEAD</span>
+                <h4 class="card-title">Talking Head 03 - Visual Storytelling</h4>
+              </div>
+              <div class="card-arrow" aria-label="Open project">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Talking Head Card 4 -->
+          <div class="portfolio-card spotlight-card tilt-card reveal-fade-up" data-category="talking-head" style="--delay: 0.25s;" onclick="openProjectModal('Talking Head 04 - High Retention Cut', 'TALKING HEAD', 'assets/portfolio-talkinghead-4.png', 'Rapid-cut informational editing with kinetic graphics, emphasis zooms, and atmospheric background audio.', 'assets/talking-head-4.mp4')">
+            <div class="card-thumb-wrapper">
+              <video class="card-thumb" src="assets/talking-head-4.mp4#t=0.5" preload="metadata" muted playsinline loop poster="assets/portfolio-talkinghead-4.png"></video>
+              <div class="card-badge-video">▶ VIDEO</div>
+              <div class="card-overlay">
+                <span class="preview-badge">▶ Watch Video ↗</span>
+              </div>
+            </div>
+            <div class="card-info">
+              <div class="card-text">
+                <span class="card-category">TALKING HEAD</span>
+                <h4 class="card-title">Talking Head 04 - High Retention Cut</h4>
+              </div>
+              <div class="card-arrow" aria-label="Open project">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Talking Head Card 5 -->
+          <div class="portfolio-card spotlight-card tilt-card reveal-fade-up" data-category="talking-head" style="--delay: 0.3s;" onclick="openProjectModal('Talking Head 05 - Authority & Impact', 'TALKING HEAD', 'assets/portfolio-talkinghead-5.png', 'Crisp professional talking-head edit optimized for YouTube Shorts, Reels, and high engagement.', 'assets/talking-head-5.mp4')">
+            <div class="card-thumb-wrapper">
+              <video class="card-thumb" src="assets/talking-head-5.mp4#t=0.5" preload="metadata" muted playsinline loop poster="assets/portfolio-talkinghead-5.png"></video>
+              <div class="card-badge-video">▶ VIDEO</div>
+              <div class="card-overlay">
+                <span class="preview-badge">▶ Watch Video ↗</span>
+              </div>
+            </div>
+            <div class="card-info">
+              <div class="card-text">
+                <span class="card-category">TALKING HEAD</span>
+                <h4 class="card-title">Talking Head 05 - Authority & Impact</h4>
               </div>
               <div class="card-arrow" aria-label="Open project">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
