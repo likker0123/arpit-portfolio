@@ -304,7 +304,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const categoryAttr = card.getAttribute('data-category') || '';
         const categories = categoryAttr.split(/\s+/);
         
-        if (filterValue === 'all' || categories.indexOf(filterValue) !== -1 || categoryAttr === filterValue) {
+        const isMatch = (filterValue === 'all') ||
+                        (categoryAttr === filterValue) ||
+                        (categories.indexOf(filterValue) !== -1) ||
+                        (filterValue === 'animation' && (categoryAttr === 'ui-animation' || categories.indexOf('ui-animation') !== -1)) ||
+                        (filterValue === 'ui-animation' && (categoryAttr === 'ui-animation' || categories.indexOf('ui-animation') !== -1));
+        
+        if (isMatch) {
           card.style.display = 'flex';
           card.style.opacity = '0';
           card.style.transform = 'scale(0.92) translateY(20px)';
@@ -320,16 +326,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Video hover preview on portfolio cards
+  // Video hover / autoplay preview on portfolio cards
   portfolioCards.forEach(card => {
     const video = card.querySelector('video.card-thumb');
     if (video) {
+      video.play().catch(() => {});
       card.addEventListener('mouseenter', () => {
         video.play().catch(() => {});
       });
       card.addEventListener('mouseleave', () => {
-        video.pause();
-        try { video.currentTime = 0.5; } catch (e) {}
+        video.play().catch(() => {});
       });
     }
   });
@@ -1116,6 +1122,8 @@ function openProjectModal(title, category, imageSrc, description, videoUrl) {
 
     if (videoUrl && modalVideo) {
       modalVideo.src = videoUrl;
+      const sourceTag = modalVideo.querySelector('source');
+      if (sourceTag) sourceTag.src = videoUrl;
       modalVideo.style.display = 'block';
       modalImg.style.display = 'none';
       if (playOverlay) playOverlay.style.display = 'none';
